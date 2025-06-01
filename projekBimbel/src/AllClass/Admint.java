@@ -8,22 +8,22 @@ package AllClass;
  *
  * @author ASUS
  */
-public class Admin extends Pegawai {
-    private String shift;
+public class Admint extends Pegawai {
+    private String sesi;
     private String bagian;
 
-    public Admin(String idPegawai, String namaPegawai, String emailPegawai, String jenisKelamin, String shift, String bagian) {
+    public Admint(String idPegawai, String namaPegawai, String emailPegawai, String jenisKelamin, String sesi, String bagian) {
         super(idPegawai, namaPegawai, emailPegawai, jenisKelamin);
-        this.shift = shift;
+        this.sesi = sesi;
         this.bagian = bagian;
     }
 
     public String getShift() {
-        return shift;
+        return sesi;
     }
 
-    public void setShift(String shift) {
-        this.shift = shift;
+    public void setShift(String sesi) {
+        this.sesi = sesi;
     }
 
     public String getBagian() {

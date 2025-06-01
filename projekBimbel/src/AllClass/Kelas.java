@@ -11,13 +11,17 @@ package AllClass;
 public class Kelas {
     private String id_kelas;
     private int kuota;
-    private String level;
+    private String id_pengajar; // FK ke pengajar
+    private String id_jadwal; // FK ke jadwal
+    private String id_mapel; // FK ke mapel
 
     // Constructor
-    public Kelas(String id_kelas, int kuota, String level) {
+    public Kelas(String id_kelas, int kuota, String id_pengajar, String id_jadwal, String id_mapel) {
         this.id_kelas = id_kelas;
         this.kuota = kuota;
-        this.level = level;
+        this.id_pengajar = id_pengajar;
+        this.id_jadwal = id_jadwal;
+        this.id_mapel = id_mapel;
     }
 
     // Getter dan Setter
@@ -36,12 +40,28 @@ public class Kelas {
     public void setKuota(int kuota) {
         this.kuota = kuota;
     }
-
-    public String getLevel() {
-        return level;
+    
+    public String getIdPengajar() {
+        return id_pengajar;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setIdPengajar(String id_pengajar) {
+        this.id_pengajar = id_pengajar;
+    }
+    
+    public String getIdJadwal() {
+        return id_jadwal;
+    }
+
+    public void setIdJadwal(String id_jadwal) {
+        this.id_jadwal = id_jadwal;
+    }
+    
+    public String getIdMapel() {
+        return id_mapel;
+    }
+
+    public void setIdMapel(String id_mapel) {
+        this.id_mapel = id_mapel;
     }
 }

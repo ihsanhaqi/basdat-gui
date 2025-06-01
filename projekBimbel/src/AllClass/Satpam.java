@@ -9,21 +9,21 @@ package AllClass;
  * @author ASUS
  */
 public class Satpam extends Pegawai {
-    private String shift;
+    private String sesi;
     private String jabatan;
 
-    public Satpam(String idPegawai, String namaPegawai, String emailPegawai, String jenisKelamin, String shift, String jabatan) {
+    public Satpam(String idPegawai, String namaPegawai, String emailPegawai, String jenisKelamin, String sesi, String jabatan) {
         super(idPegawai, namaPegawai, emailPegawai, jenisKelamin);
-        this.shift = shift;
+        this.sesi = sesi;
         this.jabatan = jabatan;
     }
 
     public String getShift() {
-        return shift;
+        return sesi;
     }
 
-    public void setShift(String shift) {
-        this.shift = shift;
+    public void setShift(String sesi) {
+        this.sesi = sesi;
     }
 
     public String getJabatan() {
