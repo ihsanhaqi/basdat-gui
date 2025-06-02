@@ -4,17 +4,37 @@
  */
 package basdatgui;
 
+import java.awt.BorderLayout;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Regina Anky Chandra
  */
 public class PembayaranFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BerandaFrame
-     */
+    
     public PembayaranFrame() {
         initComponents();
+        rincianTextArea = new JTextArea(5, 20);
+        nominalField = new JTextField(10);
+        metodeComboBox = new JComboBox<>(new String[]{"Qris", "Transfer"});
+
+        // Panel Riwayat
+        riwayatPanel = new JPanel();
+        riwayatPanel.setLayout(new BoxLayout(riwayatPanel, BoxLayout.Y_AXIS));
+        jScrollPane3 = new JScrollPane(riwayatPanel);
+
+        // Tambahkan ke frame atau layout utama
+        add(jScrollPane3, BorderLayout.SOUTH); // contoh saja
         
     }
 
@@ -37,26 +57,19 @@ public class PembayaranFrame extends javax.swing.JFrame {
         labelTagihanPembayaran = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         labelTagihan1 = new javax.swing.JLabel();
-        labelStatus1 = new javax.swing.JLabel();
         labelJumlahBayar1 = new javax.swing.JLabel();
-        txtJumlahBayar = new javax.swing.JTextField();
+        nominalField = new javax.swing.JTextField();
         labelMetodePembayaran = new javax.swing.JLabel();
         labelJumlahBayar3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        labelMetodePembayaran1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        labelTagihan2 = new javax.swing.JLabel();
-        labelStatus2 = new javax.swing.JLabel();
-        labelJumlahBayar2 = new javax.swing.JLabel();
-        labelMetodePembayaran2 = new javax.swing.JLabel();
-        txtJumlahBayar2 = new javax.swing.JTextField();
-        txtMetodePembayaran2 = new javax.swing.JTextField();
+        rincianTextArea = new javax.swing.JTextArea();
+        metodeComboBox = new javax.swing.JComboBox<>();
+        SubmitBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        riwayatPanel = new javax.swing.JPanel();
+        labelTagihanPembayaran1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -147,42 +160,31 @@ public class PembayaranFrame extends javax.swing.JFrame {
         labelTagihanPembayaran.setText("Tagihan Pembayaran");
 
         labelTagihan1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelTagihan1.setText("Tagihan 1");
-
-        labelStatus1.setText("Lunas");
+        labelTagihan1.setText("Tagihan");
 
         labelJumlahBayar1.setText("Nominal Pembayaran: ");
 
-        txtJumlahBayar.setEditable(false);
+        nominalField.setEditable(false);
 
         labelMetodePembayaran.setText("Metode Pembayaran: ");
 
         labelJumlahBayar3.setText("Rincian:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        rincianTextArea.setColumns(20);
+        rincianTextArea.setRows(5);
+        jScrollPane1.setViewportView(rincianTextArea);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qris", "Dana", "OVO" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        metodeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qris", "Dana", "OVO" }));
+        metodeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                metodeComboBoxActionPerformed(evt);
             }
         });
 
-        labelMetodePembayaran1.setText("Upload bukti pembayaran: ");
-
-        jButton2.setText("Browse");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        SubmitBtn.setText("Submit");
+        SubmitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SubmitBtnActionPerformed(evt);
             }
         });
 
@@ -191,31 +193,31 @@ public class PembayaranFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(labelTagihan1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(labelTagihan1)
-                        .addGap(182, 182, 182)
-                        .addComponent(labelJumlahBayar3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
+                        .addGap(115, 115, 115)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelMetodePembayaran1)
                             .addComponent(labelMetodePembayaran)
                             .addComponent(labelJumlahBayar1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtJumlahBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelStatus1)))))
-                .addGap(102, 102, 102))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(313, 313, 313))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelJumlahBayar3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,74 +231,14 @@ public class PembayaranFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelJumlahBayar1)
-                    .addComponent(txtJumlahBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelMetodePembayaran)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelStatus1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelMetodePembayaran1)
-                    .addComponent(jButton2))
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-
-        labelTagihan2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelTagihan2.setText("Tagihan 2");
-
-        labelStatus2.setText("Belum Lunas");
-
-        labelJumlahBayar2.setText("Jumlah Bayar:");
-
-        labelMetodePembayaran2.setText("Metode Pembayaran:");
-
-        txtJumlahBayar2.setEditable(false);
-
-        txtMetodePembayaran2.setEditable(false);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(labelTagihan2)
-                .addGap(300, 300, 300)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelJumlahBayar2)
-                    .addComponent(labelMetodePembayaran2))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtJumlahBayar2, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                    .addComponent(txtMetodePembayaran2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
-                .addComponent(labelStatus2)
-                .addGap(69, 69, 69))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(labelTagihan2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelJumlahBayar2)
-                            .addComponent(txtJumlahBayar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelMetodePembayaran2)
-                            .addComponent(txtMetodePembayaran2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelStatus2)
-                .addGap(44, 44, 44))
+                    .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(SubmitBtn)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jLabel1.setForeground(new java.awt.Color(197, 31, 26));
@@ -308,7 +250,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -319,19 +261,26 @@ public class PembayaranFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        riwayatPanel.setLayout(new javax.swing.BoxLayout(riwayatPanel, javax.swing.BoxLayout.LINE_AXIS));
+        jScrollPane3.setViewportView(riwayatPanel);
+
+        labelTagihanPembayaran1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelTagihanPembayaran1.setText("Riwayat Pembayaran");
+
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
         panelMain.setLayout(panelMainLayout);
         panelMainLayout.setHorizontalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane3)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTagihanPembayaran1)
                     .addComponent(labelTagihanPembayaran)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,8 +291,10 @@ public class PembayaranFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addComponent(labelTagihanPembayaran1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -385,17 +336,37 @@ public class PembayaranFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void metodeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_metodeComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_metodeComboBoxActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void SubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBtnActionPerformed
+        String rincian = rincianTextArea.getText();
+        String nominal = nominalField.getText();
+        String metode = (String) metodeComboBox.getSelectedItem();
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        // Validasi sederhana
+        if (rincian.isEmpty() || nominal.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Lengkapi data terlebih dahulu!");
+            return;
+        }
+
+        // Format tampilan pembayaran
+        String riwayatText = "<html><b>Rincian:</b><br>" + rincian.replaceAll("\n", "<br>")
+                + "<br><b>Nominal:</b> Rp" + nominal
+                + "<br><b>Metode:</b> " + metode + "<br><hr></html>";
+
+        JLabel riwayatLabel = new JLabel(riwayatText);
+        riwayatLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        riwayatPanel.add(riwayatLabel);
+        riwayatPanel.revalidate();
+        riwayatPanel.repaint();
+
+        // Kosongkan form setelah submit (opsional)
+        rincianTextArea.setText("");
+        nominalField.setText("");
+    }//GEN-LAST:event_SubmitBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -434,35 +405,28 @@ public class PembayaranFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SubmitBtn;
     private javax.swing.JButton btnBeranda;
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelJudul;
     private javax.swing.JLabel labelJumlahBayar1;
-    private javax.swing.JLabel labelJumlahBayar2;
     private javax.swing.JLabel labelJumlahBayar3;
     private javax.swing.JLabel labelMetodePembayaran;
-    private javax.swing.JLabel labelMetodePembayaran1;
-    private javax.swing.JLabel labelMetodePembayaran2;
-    private javax.swing.JLabel labelStatus1;
-    private javax.swing.JLabel labelStatus2;
     private javax.swing.JLabel labelTagihan1;
-    private javax.swing.JLabel labelTagihan2;
     private javax.swing.JLabel labelTagihanPembayaran;
+    private javax.swing.JLabel labelTagihanPembayaran1;
+    private javax.swing.JComboBox<String> metodeComboBox;
+    private javax.swing.JTextField nominalField;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelMain;
-    private javax.swing.JTextField txtJumlahBayar;
-    private javax.swing.JTextField txtJumlahBayar2;
-    private javax.swing.JTextField txtMetodePembayaran2;
+    private javax.swing.JTextArea rincianTextArea;
+    private javax.swing.JPanel riwayatPanel;
     // End of variables declaration//GEN-END:variables
 }
