@@ -20,11 +20,13 @@ public class PembayaranFrame extends javax.swing.JFrame {
     public PembayaranFrame() {
         initComponents();
 
+
         // Panel Riwayat
         riwayatPanel.setLayout(new BoxLayout(riwayatPanel, BoxLayout.Y_AXIS));
 
         // Tambahkan ke frame atau layout utama
         add(riwayatScrollPane, BorderLayout.SOUTH); // contoh saja
+
         
     }
 
@@ -155,6 +157,11 @@ public class PembayaranFrame extends javax.swing.JFrame {
         labelJumlahBayar1.setText("Nominal Pembayaran: ");
 
         nominalField.setEditable(false);
+        nominalField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nominalFieldActionPerformed(evt);
+            }
+        });
 
         labelMetodePembayaran.setText("Metode Pembayaran: ");
 
@@ -193,15 +200,10 @@ public class PembayaranFrame extends javax.swing.JFrame {
                             .addComponent(labelJumlahBayar1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(313, 313, 313))
+                            .addComponent(SubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labelJumlahBayar3)
@@ -315,7 +317,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame();
+        BiodataFrame biodata = new BiodataFrame("USER1");
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed
@@ -352,12 +354,27 @@ public class PembayaranFrame extends javax.swing.JFrame {
         riwayatPanel.add(riwayatLabel);
         riwayatPanel.revalidate();
         riwayatPanel.repaint();
-
+        
         // Kosongkan form setelah submit (opsional)
         rincianTextArea.setText("");
         nominalField.setText("");
     }//GEN-LAST:event_SubmitBtnActionPerformed
 
+    private void nominalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nominalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nominalFieldActionPerformed
+//    private void updateKeranjangTextArea() {
+//        StringBuilder sb = new StringBuilder();
+//
+//        for (KelasDipilih kelas : keranjangKelas) {
+//            sb.append("ID Kelas: ").append(kelas.getIdKelas())
+//            .append(" | Mapel: ").append(kelas.getNamaMapel())
+//            .append("\n");
+//        }
+//    rincianTextArea.setText(sb.toString());
+//}
+
+    
     /**
      * @param args the command line arguments
      */

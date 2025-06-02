@@ -1,20 +1,34 @@
+package basdatgui;
+
+import AllClass.JadwalDAO;
+import AllClass.KelasDipilih;
+import basdatgui.BiodataFrame;
+import basdatgui.PembayaranFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package basdatgui;
+
 
 /**
  *
  * @author Regina Anky Chandra
  */
 public class JadwalFrame extends javax.swing.JFrame {
-
+         List<KelasDipilih> keranjangKelas = new ArrayList<>();
     /**
      * Creates new form BerandaFrame
      */
     public JadwalFrame() {
         initComponents();
+        loadJadwalTable();
     }
 
     /**
@@ -38,6 +52,7 @@ public class JadwalFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JadwalTabel = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        InputBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,7 +69,6 @@ public class JadwalFrame extends javax.swing.JFrame {
         JamMulaiTF = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         JamSelesaiTF = new javax.swing.JTextField();
-        InputBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -149,6 +163,7 @@ public class JadwalFrame extends javax.swing.JFrame {
                 "Kelas ", "Kuota", "Pengajar", "Mata Pelajaran", "Hari", "Jam Mulai", "Jam Selesai"
             }
         ));
+        JadwalTabel.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(JadwalTabel);
         if (JadwalTabel.getColumnModel().getColumnCount() > 0) {
             JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -164,17 +179,29 @@ public class JadwalFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("JADWAL");
 
+        InputBtn.setText("Input");
+        InputBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 820, Short.MAX_VALUE)))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 820, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(665, 665, 665)
+                        .addComponent(InputBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -184,7 +211,9 @@ public class JadwalFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(InputBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -253,13 +282,6 @@ public class JadwalFrame extends javax.swing.JFrame {
             }
         });
 
-        InputBtn.setText("Input");
-        InputBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -281,8 +303,7 @@ public class JadwalFrame extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(InputBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel9))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -318,9 +339,7 @@ public class JadwalFrame extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JamSelesaiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(InputBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -383,7 +402,7 @@ public class JadwalFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame();
+        BiodataFrame biodata = new BiodataFrame("USER1");
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed
@@ -424,11 +443,48 @@ public class JadwalFrame extends javax.swing.JFrame {
 
     private void InputBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputBtnActionPerformed
         // TODO add your handling code here:
+    InputBtn.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        int selectedRow = JadwalTabel.getSelectedRow();
+        if (selectedRow >= 0) {
+            String idKelas = JadwalTabel.getValueAt(selectedRow, 0).toString();
+            String namaMapel = JadwalTabel.getValueAt(selectedRow, 3).toString();
+            KelasDipilih kelas = new KelasDipilih();
+            kelas.setIdKelas(idKelas);
+            kelas.setNamaMapel(namaMapel);
+
+            keranjangKelas.add(kelas);
+            JOptionPane.showMessageDialog(null, "Kelas berhasil ditambahkan ke keranjang!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Silakan pilih kelas terlebih dahulu.");
+        }
+    }
+});
+    
+    
     }//GEN-LAST:event_InputBtnActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    private void loadJadwalTable(){
+        DefaultTableModel model = (DefaultTableModel) JadwalTabel.getModel();
+        List<KelasDipilih> dataJadwal = JadwalDAO.getAllJadwal();
+
+    for (KelasDipilih row : dataJadwal) {
+        Object[] rowData = new Object[]{
+            row.getIdKelas(),
+            row.getKuota(),
+            row.getIdPegawai(),
+            row.getNamaMapel(),
+            row.getHari(),
+            row.getJamMulai(),
+            row.getJamSelesai()
+        };
+        model.addRow(rowData);
+        
+    }
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
