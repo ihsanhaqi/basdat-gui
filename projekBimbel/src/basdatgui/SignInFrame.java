@@ -4,15 +4,16 @@
  */
 package basdatgui;
 
-import com.sun.jdi.connect.spi.Connection;
 import javax.swing.JOptionPane;
+import util.DatabaseConnection;
+import java.sql.*;
 
 /**
  *
  * @author Regina Anky Chandra
  */
 public class SignInFrame extends javax.swing.JFrame {
-
+//    private Connection conn;
     /**
      * Creates new form BerandaFrame
      */
@@ -135,8 +136,6 @@ public class SignInFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/11zon_resized-removebg-preview.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -230,28 +229,26 @@ public class SignInFrame extends javax.swing.JFrame {
 
         // Koneksi database & pengecekan user
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nama_database", "username", "password");
-            String query = "SELECT * FROM user WHERE nama = ? AND email = ?";
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, nama);
-            stmt.setString(2, email);
-
-            ResultSet rs = stmt.executeQuery();
+            Connection conn = DatabaseConnection.getConnection(); // pastikan class ini ada
+            String query = "SELECT * FROM pelajar WHERE nama = ? AND email = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, nama);
+            pstmt.setString(2, email);
+            ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                // Login sukses
+                // Login berhasil
                 JOptionPane.showMessageDialog(this, "Login berhasil. Selamat datang, " + nama + "!");
-                new BerandaFrame().setVisible(true); // lanjut ke halaman utama
-                this.dispose(); // tutup frame login
+                new BerandaFrame().setVisible(true);
+                this.dispose();
             } else {
                 // Login gagal
                 JOptionPane.showMessageDialog(this, "Nama atau email tidak cocok dengan database.", "Login Gagal", JOptionPane.ERROR_MESSAGE);
             }
 
             rs.close();
-            stmt.close();
+            pstmt.close();
             conn.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Terjadi kesalahan koneksi ke database.", "Error", JOptionPane.ERROR_MESSAGE);

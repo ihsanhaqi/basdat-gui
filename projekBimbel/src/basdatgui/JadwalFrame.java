@@ -114,7 +114,6 @@ public class JadwalFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         btnBiodata.setBorderPainted(false);
         btnBiodata.setContentAreaFilled(false);
         btnBiodata.setFocusPainted(false);
@@ -164,6 +163,11 @@ public class JadwalFrame extends javax.swing.JFrame {
             }
         ));
         JadwalTabel.getTableHeader().setReorderingAllowed(false);
+        JadwalTabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JadwalTabelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JadwalTabel);
         if (JadwalTabel.getColumnModel().getColumnCount() > 0) {
             JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -463,6 +467,31 @@ public class JadwalFrame extends javax.swing.JFrame {
     
     
     }//GEN-LAST:event_InputBtnActionPerformed
+
+    private void JadwalTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JadwalTabelMouseClicked
+        // TODO add your handling code here:
+        int row = JadwalTabel.getSelectedRow(); // ambil baris yang diklik
+
+        if (row >= 0) {
+            // Ambil data dari kolom sesuai urutan di tabelmu
+            String kelas = JadwalTabel.getValueAt(row, 0).toString();
+            String kuota = JadwalTabel.getValueAt(row, 1).toString();
+            String pengajar = JadwalTabel.getValueAt(row, 2).toString();
+            String mapel = JadwalTabel.getValueAt(row, 3).toString();
+            String hari = JadwalTabel.getValueAt(row, 4).toString();
+            String jamMulai = JadwalTabel.getValueAt(row, 5).toString();
+            String jamSelesai = JadwalTabel.getValueAt(row, 6).toString();
+
+            // Isi textfield dengan data dari tabel
+            KelasTF.setText(kelas);
+            KuotaTF.setText(kuota);
+            PengajarTF.setText(pengajar);
+            MapelTF.setText(mapel);
+            HariTF.setText(hari);
+            JamMulaiTF.setText(jamMulai);
+            JamSelesaiTF.setText(jamSelesai);
+        }
+    }//GEN-LAST:event_JadwalTabelMouseClicked
 
     /**
      * @param args the command line arguments

@@ -5,13 +5,18 @@
         <group>
             <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/BerandaFrame.java</file>
             <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/JadwalFrame.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/AllClass/JadwalDAO.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/AllClass/KelasDipilih.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/AllClass/Kelas.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/AllClass/KelasDAO.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/util/DatabaseConnection.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/BasdatGUI.java</file>
             <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/KelasPilihan.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/BiodataFrame.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/PembayaranFrame.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/BasdatGUI.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/AllClass/KelasDAO.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/SignInFrame.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/basdatgui/SignUpFrame.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/util/DatabaseConnection.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/util/TestKoneksi.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/images/11zon_resized%20(1).png</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/images/books.png</file>
+            <file>file:/C:/Users/LENOVO/Documents/GitHub/basdat-gui/projekBimbel/src/images/user%20(1).png</file>
         </group>
     </open-files>
 </project-private>

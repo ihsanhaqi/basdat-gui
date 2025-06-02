@@ -4,7 +4,12 @@
  */
 package basdatgui;
 
+import java.net.URL;
 import javax.swing.JOptionPane;
+import java.sql.*;
+import javax.swing.ImageIcon;
+import util.DatabaseConnection;
+
 
 /**
  *
@@ -17,6 +22,13 @@ public class SignUpFrame extends javax.swing.JFrame {
      */
     public SignUpFrame() {
         initComponents();
+//        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/11zon_resized-removebg-preview.png")));
+//        URL imgUrl = getClass().getResource("/images/11zon_resized-removebg-preview.png");
+//        if (imgUrl == null) {
+//            System.err.println("Gambar tidak ditemukan!");
+//        } else {
+//            jLabel1.setIcon(new ImageIcon(imgUrl));
+//        }
     }
 
     /**
@@ -43,12 +55,10 @@ public class SignUpFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         SignInKlik = new javax.swing.JLabel();
         SignUpKlik = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 800));
 
         panelMain.setMinimumSize(new java.awt.Dimension(800, 600));
         panelMain.setPreferredSize(new java.awt.Dimension(1200, 800));
@@ -187,19 +197,16 @@ public class SignUpFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/11zon_resized-removebg-preview.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(373, Short.MAX_VALUE)
                 .addComponent(SignInKlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SignUpKlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,8 +215,6 @@ public class SignUpFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SignUpKlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SignInKlik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(158, 158, 158)
-                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -296,17 +301,21 @@ public class SignUpFrame extends javax.swing.JFrame {
             return;
         }
         
+        java.sql.Date sqlTanggal;
         try {
-            // Koneksi ke database (ganti nama DB, user, dan password sesuai dengan milikmu)
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nama_database", "username", "password");
+            sqlTanggal = java.sql.Date.valueOf(tanggalLahir); // throws IllegalArgumentException jika format salah
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, "Format tanggal lahir tidak valid! Gunakan format yyyy-MM-dd.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-            String sql = "INSERT INTO pelajar (id_pelajar, nama, tanggal_lahir, alamat, email, nomor_hp, jenis_kelamin) " +
-                         "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(
+                "INSERT INTO pelajar (id_pelajar, nama, tanggal_lahir, alamat, email, nomor_hp, jenis_kelamin) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
-            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, id);
             stmt.setString(2, nama);
-            stmt.setDate(3, java.sql.Date.valueOf(tanggalLahir)); // pastikan input yyyy-MM-dd
+            stmt.setDate(3, sqlTanggal);
             stmt.setString(4, alamat);
             stmt.setString(5, email);
             stmt.setString(6, noHp);
@@ -315,28 +324,25 @@ public class SignUpFrame extends javax.swing.JFrame {
             int inserted = stmt.executeUpdate();
             if (inserted > 0) {
                 JOptionPane.showMessageDialog(this, "Pendaftaran berhasil!");
-                // Kosongkan form
-                idTextField.setText("");
-                namaTextField.setText("");
-                tanggalLahirTextField.setText("");
-                alamatTextField.setText("");
-                emailTextField.setText("");
-                noHpTextField.setText("");
-                jenisKelaminComboBox.setSelectedIndex(0);
-                
+//                // Kosongkan form
+//                idTextField.setText("");
+//                namaTextField.setText("");
+//                tanggalLahirTextField.setText("");
+//                alamatTextField.setText("");
+//                emailTextField.setText("");
+//                noHpTextField.setText("");
+//                jenisKelaminComboBox.setSelectedIndex(0);
+
                 BerandaFrame beranda = new BerandaFrame();
                 beranda.setVisible(true);
                 this.dispose();
             }
 
-            stmt.close();
-            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menyimpan data:\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(this, "Format tanggal lahir tidak valid! Gunakan yyyy-MM-dd.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_DaftarBtnActionPerformed
 
     private void SignUpKlikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpKlikMouseClicked
@@ -400,7 +406,6 @@ public class SignUpFrame extends javax.swing.JFrame {
     private javax.swing.JTextField alamatTextField;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField idTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -5,8 +5,10 @@
 package basdatgui;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -17,17 +19,14 @@ import javax.swing.JOptionPane;
 public class PembayaranFrame extends javax.swing.JFrame {
 
     
+    private ArrayList<String> daftarKelas = new ArrayList<>();
+    private DefaultListModel<String> riwayatModel = new DefaultListModel<>();
+
     public PembayaranFrame() {
         initComponents();
-
-
-        // Panel Riwayat
         riwayatPanel.setLayout(new BoxLayout(riwayatPanel, BoxLayout.Y_AXIS));
-
-        // Tambahkan ke frame atau layout utama
-        add(riwayatScrollPane, BorderLayout.SOUTH); // contoh saja
-
-        
+        riwayatScrollPane.setViewportView(riwayatPanel);
+        add(riwayatScrollPane, BorderLayout.SOUTH);
     }
 
     /**
@@ -107,7 +106,6 @@ public class PembayaranFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         btnBiodata.setBorderPainted(false);
         btnBiodata.setContentAreaFilled(false);
         btnBiodata.setFocusPainted(false);
