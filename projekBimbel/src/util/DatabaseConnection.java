@@ -18,10 +18,10 @@ public class DatabaseConnection {
         if (koneksi == null) {
             try {
                 String server = "localhost";
-                String database = "projekBimbel";
+                String database = "ProyekBimbel";
                 String user = "sa";
-                String password = "Admin123";
-                String url = "jdbc:sqlserver://" + server + ":1433;databaseName=" + database + ";encrypt=false";
+                String password = "admin123";
+                String url = "jdbc:sqlserver://" + server + ":1300;databaseName=" + database + ";encrypt=false";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 koneksi = DriverManager.getConnection(url, user, password);
                 System.out.println("Koneksi berhasil!");

@@ -4,6 +4,10 @@
  */
 package basdatgui;
 
+import AllClass.Pelajar;
+import AllClass.PelajarDAO;
+import util.DatabaseConnection;
+
 /**
  *
  * @author Regina Anky Chandra
@@ -13,8 +17,22 @@ public class BiodataFrame extends javax.swing.JFrame {
     /**
      * Creates new form BerandaFrame
      */
-    public BiodataFrame() {
+    public BiodataFrame(String idPelajar) {
         initComponents();
+        tampilkanDataPelajar(idPelajar);
+    }
+    private void tampilkanDataPelajar(String idPelajar) {
+        PelajarDAO dao = new PelajarDAO();
+        Pelajar p = dao.getPelajarById(idPelajar);
+        if (p != null) {
+            txtNama.setText(p.getNama());
+            txtID.setText(p.getIdPelajar());
+            txtTanggalLahir.setText(p.getTanggalLahir());
+            txtAlamat.setText(p.getAlamat());
+            txtEmail.setText(p.getEmail());
+            txtNomorHp.setText(p.getNomorHp());
+            txtJenisKelamin.setText(p.getJenisKelamin());
+        }
     }
 
     /**
@@ -161,6 +179,11 @@ public class BiodataFrame extends javax.swing.JFrame {
         labelJenisKelamin.setText("Jenis Kelamin: ");
 
         txtNama.setEditable(false);
+        txtNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamaActionPerformed(evt);
+            }
+        });
 
         txtID.setEditable(false);
 
@@ -262,7 +285,7 @@ public class BiodataFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame();
+        BiodataFrame biodata = new BiodataFrame("USER1");
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed
@@ -280,34 +303,38 @@ public class BiodataFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnJadwalActionPerformed
 
     private void btnBerandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerandaActionPerformed
-        BiodataFrame beranda = new BiodataFrame();
+        BiodataFrame beranda = new BiodataFrame("USER1");
         beranda.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
+
+    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamaActionPerformed
     
-    private void tampilkanDataPelajar(String idPelajar) {
-        try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "SELECT * FROM pelajar WHERE id_pelajar = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, idPelajar);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                txtNama.setText(rs.getString("nama"));
-                txtTanggalLahir.setText(rs.getString("tanggal_lahir"));
-                txtAlamat.setText(rs.getString("alamat"));
-                txtEmail.setText(rs.getString("email"));
-                txtNomorHP.setText(rs.getString("nomor_hp"));
-                txtJenisKelamin.setText(rs.getString("jenis_kelamin"));
-            } else {
-                JOptionPane.showMessageDialog(this, "Data tidak ditemukan.");
-            }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Gagal memuat data.");
-        }
-    }
+//    private void tampilkanDataPelajar(String idPelajar) {
+//        try (Connection conn = DatabaseConnection.getConnection()) {
+//            String sql = "SELECT * FROM pelajar WHERE id_pelajar = ?";
+//            PreparedStatement stmt = conn.prepareStatement(sql);
+//            stmt.setString(1, idPelajar);
+//            ResultSet rs = stmt.executeQuery();
+//
+//            if (rs.next()) {
+//                txtNama.setText(rs.getString("nama"));
+//                txtTanggalLahir.setText(rs.getString("tanggal_lahir"));
+//                txtAlamat.setText(rs.getString("alamat"));
+//                txtEmail.setText(rs.getString("email"));
+//                txtNomorHP.setText(rs.getString("nomor_hp"));
+//                txtJenisKelamin.setText(rs.getString("jenis_kelamin"));
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Data tidak ditemukan.");
+//            }
+//
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Gagal memuat data.");
+//        }
+//    }
 
     /**
      * @param args the command line arguments
@@ -340,7 +367,7 @@ public class BiodataFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BiodataFrame().setVisible(true);
+                new BiodataFrame("USER1").setVisible(true);
             }
         });
     }

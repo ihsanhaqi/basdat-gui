@@ -8,11 +8,29 @@ package AllClass;
  *
  * @author ASUS
  */
+
+
 public class Kelas {
     private String id_kelas;
     private int kuota;
+    private String namaPegawai;
+    private String namaMapel;
+    private String hari;
+    private String jamMulai;
+    private String jamSelesai;
     private String level;
 
+    public Kelas(String id_kelas, int kuota, String namaPegawai, String namaMapel, String hari, String jamMulai, String jamSelesai) {
+        this.id_kelas = id_kelas;
+        this.kuota = kuota;
+        this.namaPegawai = namaPegawai;
+        this.namaMapel = namaMapel;
+        this.hari = hari;
+        this.jamMulai = jamMulai;
+        this.jamSelesai = jamSelesai;
+    }
+
+    // getter setter jika perlu
     // Constructor
     public Kelas(String id_kelas, int kuota, String level) {
         this.id_kelas = id_kelas;
