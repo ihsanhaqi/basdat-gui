@@ -35,7 +35,6 @@ public class BerandaFrame extends javax.swing.JFrame {
         btnBiodata = new javax.swing.JButton();
         labelJudulContent = new javax.swing.JLabel();
         panelContent = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -82,7 +81,7 @@ public class BerandaFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basdatgui/11zon_resized.png"))); // NOI18N
+        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         btnBiodata.setBorderPainted(false);
         btnBiodata.setContentAreaFilled(false);
         btnBiodata.setFocusPainted(false);
@@ -130,8 +129,6 @@ public class BerandaFrame extends javax.swing.JFrame {
         panelContent.setText("<html><p style='width:300px'>Selamat datang! Siap belajar hari ini ? Cek jadwal kamu dan jangan lupa untuk datangi kelas kamu sesuai jadwal ya.</p></html>");
         panelContent.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basdatgui/11zon_resized-removebg-preview.png"))); // NOI18N
-
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
         panelMain.setLayout(panelMainLayout);
         panelMainLayout.setHorizontalGroup(
@@ -142,35 +139,28 @@ public class BerandaFrame extends javax.swing.JFrame {
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelJudulContent)
                     .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(40, 40, 40))
+                .addGap(40, 790, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMainLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(labelJudulContent)
-                        .addGap(18, 18, 18)
-                        .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelMainLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addComponent(labelJudulContent)
+                .addGap(18, 18, 18)
+                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 414, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -240,7 +230,6 @@ public class BerandaFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelJudul;
     private javax.swing.JLabel labelJudulContent;
     private javax.swing.JLabel panelContent;
