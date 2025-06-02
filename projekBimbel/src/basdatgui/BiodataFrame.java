@@ -52,7 +52,6 @@ public class BiodataFrame extends javax.swing.JFrame {
         btnPembayaran = new javax.swing.JButton();
         btnBiodata = new javax.swing.JButton();
         labelJudulContent = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         labelNama = new javax.swing.JLabel();
         labelID = new javax.swing.JLabel();
         labelTanggalLahir = new javax.swing.JLabel();
@@ -112,7 +111,7 @@ public class BiodataFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basdatgui/11zon_resized.png"))); // NOI18N
+        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         btnBiodata.setBorderPainted(false);
         btnBiodata.setContentAreaFilled(false);
         btnBiodata.setFocusPainted(false);
@@ -129,7 +128,7 @@ public class BiodataFrame extends javax.swing.JFrame {
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(labelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 547, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
                 .addComponent(btnBeranda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnJadwal)
@@ -155,8 +154,6 @@ public class BiodataFrame extends javax.swing.JFrame {
 
         labelJudulContent.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelJudulContent.setText("Biodata Pelajar");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basdatgui/11zon_resized (1).png"))); // NOI18N
 
         labelNama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelNama.setText("Nama: ");
@@ -224,50 +221,43 @@ public class BiodataFrame extends javax.swing.JFrame {
                             .addComponent(txtNomorHp)
                             .addComponent(txtJenisKelamin)
                             .addComponent(txtNama))))
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26))
+                .addGap(354, 354, 354))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMainLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(labelJudulContent)
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNama)
-                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelID)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelTanggalLahir)
-                            .addComponent(txtTanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelAlamat)
-                            .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelEmail)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNoHp)
-                            .addComponent(txtNomorHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelJenisKelamin)
-                            .addComponent(txtJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelMainLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel1)))
-                .addGap(0, 324, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(labelJudulContent)
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNama)
+                    .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelID)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTanggalLahir)
+                    .addComponent(txtTanggalLahir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAlamat)
+                    .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNoHp)
+                    .addComponent(txtNomorHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelJenisKelamin)
+                    .addComponent(txtJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 343, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -377,7 +367,6 @@ public class BiodataFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelAlamat;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelID;

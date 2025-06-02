@@ -7,13 +7,8 @@ package basdatgui;
 import java.awt.BorderLayout;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 /**
  *
@@ -24,17 +19,14 @@ public class PembayaranFrame extends javax.swing.JFrame {
     
     public PembayaranFrame() {
         initComponents();
-//        rincianTextArea = new JTextArea(5, 20);
-//        nominalField = new JTextField(10);
-//        metodeComboBox = new JComboBox<>(new String[]{"Qris", "Transfer"});
-//
-//        // Panel Riwayat
-//        riwayatPanel = new JPanel();
-//        riwayatPanel.setLayout(new BoxLayout(riwayatPanel, BoxLayout.Y_AXIS));
-//        jScrollPane3 = new JScrollPane(riwayatPanel);
-//
-//        // Tambahkan ke frame atau layout utama
-//        add(jScrollPane3, BorderLayout.SOUTH); // contoh saja
+
+
+        // Panel Riwayat
+        riwayatPanel.setLayout(new BoxLayout(riwayatPanel, BoxLayout.Y_AXIS));
+
+        // Tambahkan ke frame atau layout utama
+        add(riwayatScrollPane, BorderLayout.SOUTH); // contoh saja
+
         
     }
 
@@ -67,7 +59,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
         SubmitBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        riwayatScrollPane = new javax.swing.JScrollPane();
         riwayatPanel = new javax.swing.JPanel();
         labelTagihanPembayaran1 = new javax.swing.JLabel();
 
@@ -115,7 +107,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
             }
         });
 
-        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basdatgui/11zon_resized.png"))); // NOI18N
+        btnBiodata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         btnBiodata.setBorderPainted(false);
         btnBiodata.setContentAreaFilled(false);
         btnBiodata.setFocusPainted(false);
@@ -262,7 +254,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
         );
 
         riwayatPanel.setLayout(new javax.swing.BoxLayout(riwayatPanel, javax.swing.BoxLayout.LINE_AXIS));
-        jScrollPane3.setViewportView(riwayatPanel);
+        riwayatScrollPane.setViewportView(riwayatPanel);
 
         labelTagihanPembayaran1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelTagihanPembayaran1.setText("Riwayat Pembayaran");
@@ -273,7 +265,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane3)
+            .addComponent(riwayatScrollPane)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +285,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelTagihanPembayaran1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(riwayatScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -429,7 +421,6 @@ public class PembayaranFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelJudul;
     private javax.swing.JLabel labelJumlahBayar1;
     private javax.swing.JLabel labelJumlahBayar3;
@@ -443,5 +434,6 @@ public class PembayaranFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelMain;
     private javax.swing.JTextArea rincianTextArea;
     private javax.swing.JPanel riwayatPanel;
+    private javax.swing.JScrollPane riwayatScrollPane;
     // End of variables declaration//GEN-END:variables
 }

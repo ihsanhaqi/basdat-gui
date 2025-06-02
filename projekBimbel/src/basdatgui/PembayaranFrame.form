@@ -51,7 +51,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="panelHeader" alignment="0" max="32767" attributes="0"/>
               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-              <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
+              <Component id="riwayatScrollPane" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -74,7 +74,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelTagihanPembayaran1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="272" max="-2" attributes="0"/>
+                  <Component id="riwayatScrollPane" min="-2" pref="272" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -179,7 +179,7 @@
             <Component class="javax.swing.JButton" name="btnBiodata">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/basdatgui/11zon_resized.png"/>
+                  <Image iconType="3" name="/images/user (1).png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -368,7 +368,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+        <Container class="javax.swing.JScrollPane" name="riwayatScrollPane">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
