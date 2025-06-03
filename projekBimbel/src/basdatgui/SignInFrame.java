@@ -229,7 +229,7 @@ public class SignInFrame extends javax.swing.JFrame {
 
         // Koneksi database & pengecekan user
         try {
-            Connection conn = DatabaseConnection.getConnection(); // pastikan class ini ada
+            Connection conn = DatabaseConnection.getConnection(); 
             String query = "SELECT * FROM pelajar WHERE nama = ? AND email = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, nama);

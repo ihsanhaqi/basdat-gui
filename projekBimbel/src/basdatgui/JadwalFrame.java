@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Regina Anky Chandra
  */
 public class JadwalFrame extends javax.swing.JFrame {
-         List<KelasDipilih> keranjangKelas = new ArrayList<>();
+        private static ArrayList<KelasDipilih> keranjangKelas = new ArrayList<>();
     /**
      * Creates new form BerandaFrame
      */
@@ -30,7 +30,9 @@ public class JadwalFrame extends javax.swing.JFrame {
         initComponents();
         loadJadwalTable();
     }
-
+    public static ArrayList<KelasDipilih> getKeranjangKelas(){
+        return keranjangKelas;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -4,13 +4,17 @@
  */
 package basdatgui;
 
+import static basdatgui.JadwalFrame.getKeranjangKelas;
+import AllClass.PembayaranDAO;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import util.DatabaseConnection;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *
@@ -19,7 +23,6 @@ import javax.swing.JOptionPane;
 public class PembayaranFrame extends javax.swing.JFrame {
 
     
-    private ArrayList<String> daftarKelas = new ArrayList<>();
     private DefaultListModel<String> riwayatModel = new DefaultListModel<>();
 
     public PembayaranFrame() {
@@ -27,6 +30,22 @@ public class PembayaranFrame extends javax.swing.JFrame {
         riwayatPanel.setLayout(new BoxLayout(riwayatPanel, BoxLayout.Y_AXIS));
         riwayatScrollPane.setViewportView(riwayatPanel);
         add(riwayatScrollPane, BorderLayout.SOUTH);
+    }
+    
+    public void tambahKelas(String kelas) {
+        daftarKelas.add(kelas);
+        tampilkanRincian();
+    }
+
+    private void tampilkanRincian() {
+        StringBuilder sb = new StringBuilder();
+        for (String item : keranjangKelas) {
+            sb.append(item).append("\n");
+        }
+        rincianTextArea.setText(sb.toString());
+
+        int nominal = daftarKelas.size() * 100000;
+        nominalField.setText(String.valueOf(nominal));
     }
 
     /**
@@ -331,48 +350,43 @@ public class PembayaranFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_metodeComboBoxActionPerformed
 
     private void SubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBtnActionPerformed
-        String rincian = rincianTextArea.getText();
-        String nominal = nominalField.getText();
-        String metode = (String) metodeComboBox.getSelectedItem();
+        try {
+    PembayaranDAO pembayaranDAO = new PembayaranDAO(conn);
+    boolean sukses = pembayaranDAO.prosesPembayaran(keranjang, metodeBayarDipilih, idPelajarLogin);
 
-        // Validasi sederhana
-        if (rincian.isEmpty() || nominal.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Lengkapi data terlebih dahulu!");
-            return;
-        }
-
-        // Format tampilan pembayaran
-        String riwayatText = "<html><b>Rincian:</b><br>" + rincian.replaceAll("\n", "<br>")
-                + "<br><b>Nominal:</b> Rp" + nominal
-                + "<br><b>Metode:</b> " + metode + "<br><hr></html>";
-
-        JLabel riwayatLabel = new JLabel(riwayatText);
-        riwayatLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        riwayatPanel.add(riwayatLabel);
-        riwayatPanel.revalidate();
-        riwayatPanel.repaint();
-        
-        // Kosongkan form setelah submit (opsional)
-        rincianTextArea.setText("");
-        nominalField.setText("");
+    if (sukses) {
+        JOptionPane.showMessageDialog(this, "Pembayaran berhasil!");
+        tampilkanJadwalYangDiambil(); // refresh tampilan
+    }
+} catch (Exception ex) {
+    JOptionPane.showMessageDialog(this, "Gagal membayar: " + ex.getMessage());
+}
     }//GEN-LAST:event_SubmitBtnActionPerformed
 
     private void nominalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nominalFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nominalFieldActionPerformed
-//    private void updateKeranjangTextArea() {
-//        StringBuilder sb = new StringBuilder();
-//
-//        for (KelasDipilih kelas : keranjangKelas) {
-//            sb.append("ID Kelas: ").append(kelas.getIdKelas())
-//            .append(" | Mapel: ").append(kelas.getNamaMapel())
-//            .append("\n");
-//        }
-//    rincianTextArea.setText(sb.toString());
-//}
+    private final int HARGA_PER_KELAS = 100000; // 100 ribu
 
-    
+    private void updateRincianPembayaran() {
+        StringBuilder rincian = new StringBuilder();
+        for (String kelas : daftarKelas) {
+            rincian.append("- ").append(kelas).append("\n");
+        }
+        int total = daftarKelas.size() * HARGA_PER_KELAS;
+        rincian.append("\nTotal Kelas: ").append(daftarKelas.size());
+        rincian.append("\nHarga per Kelas: Rp").append(HARGA_PER_KELAS);
+        rincian.append("\nTotal Bayar: Rp").append(total);
+
+        rincianTextArea.setText(rincian.toString());
+        nominalField.setText(String.valueOf(total));
+    }
+
+//    public void tambahKelas(String namaKelas) {
+//        daftarKelas.add(namaKelas);
+//        updateRincianPembayaran();
+//    }
+//    
     /**
      * @param args the command line arguments
      */
