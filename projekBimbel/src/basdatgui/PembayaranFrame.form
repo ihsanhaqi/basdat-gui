@@ -59,7 +59,7 @@
                       <Component id="labelTagihanPembayaran" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="501" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -342,7 +342,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="260" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="441" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -363,7 +363,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="1a" green="1f" red="c5" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;i&gt;Keterangan: Biaya perkelas senilai Rp100.000,00&lt;i/&gt;&lt;html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;i&gt;Keterangan: Paket kelas berlaku selama 6 bulan dengan harga Rp5.000.000,00/Paket.&lt;i/&gt;&lt;html&gt;"/>
               </Properties>
             </Component>
           </SubComponents>

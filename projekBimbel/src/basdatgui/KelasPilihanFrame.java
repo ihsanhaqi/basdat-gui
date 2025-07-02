@@ -8,12 +8,12 @@ package basdatgui;
  *
  * @author Regina Anky Chandra
  */
-public class KelasPilihan extends javax.swing.JFrame {
+public class KelasPilihanFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form BerandaFrame
      */
-    public KelasPilihan() {
+    public KelasPilihanFrame() {
         initComponents();
     }
 
@@ -38,6 +38,7 @@ public class KelasPilihan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        PerbaruiBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -147,6 +148,13 @@ public class KelasPilihan extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("KELAS PILIHAN");
 
+        PerbaruiBtn.setText("Perbarui");
+        PerbaruiBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PerbaruiBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -157,17 +165,20 @@ public class KelasPilihan extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(0, 767, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PerbaruiBtn)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel3)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(PerbaruiBtn))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -213,7 +224,7 @@ public class KelasPilihan extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
-        KelasPilihan jadwal = new KelasPilihan();
+        KelasPilihanFrame jadwal = new KelasPilihanFrame();
         jadwal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnJadwalActionPerformed
@@ -231,10 +242,14 @@ public class KelasPilihan extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBiodataActionPerformed
 
     private void btnBerandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerandaActionPerformed
-        KelasPilihan beranda = new KelasPilihan();
+        KelasPilihanFrame beranda = new KelasPilihanFrame();
         beranda.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
+
+    private void PerbaruiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerbaruiBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PerbaruiBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,14 +268,18 @@ public class KelasPilihan extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KelasPilihan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelasPilihanFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KelasPilihan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelasPilihanFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KelasPilihan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelasPilihanFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KelasPilihan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelasPilihanFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -269,12 +288,13 @@ public class KelasPilihan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new KelasPilihan().setVisible(true);
+                new KelasPilihanFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton PerbaruiBtn;
     private javax.swing.JButton btnBeranda;
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;

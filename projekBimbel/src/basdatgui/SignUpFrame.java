@@ -40,6 +40,8 @@ public class SignUpFrame extends javax.swing.JFrame {
         emailTextField = new javax.swing.JTextField();
         noHpTextField = new javax.swing.JTextField();
         jenisKelaminComboBox = new javax.swing.JComboBox<>();
+        noHpTextField1 = new javax.swing.JTextField();
+        noHpTextField2 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         SignInKlik = new javax.swing.JLabel();
         SignUpKlik = new javax.swing.JLabel();
@@ -48,7 +50,6 @@ public class SignUpFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1200, 800));
 
         panelMain.setMinimumSize(new java.awt.Dimension(800, 600));
         panelMain.setPreferredSize(new java.awt.Dimension(1200, 800));
@@ -120,6 +121,22 @@ public class SignUpFrame extends javax.swing.JFrame {
 
         jenisKelaminComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
+        noHpTextField1.setForeground(new java.awt.Color(153, 153, 153));
+        noHpTextField1.setText("Asal Sekolah");
+        noHpTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noHpTextField1ActionPerformed(evt);
+            }
+        });
+
+        noHpTextField2.setForeground(new java.awt.Color(153, 153, 153));
+        noHpTextField2.setText("Angkatan");
+        noHpTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noHpTextField2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,7 +156,9 @@ public class SignUpFrame extends javax.swing.JFrame {
                             .addComponent(alamatTextField)
                             .addComponent(emailTextField)
                             .addComponent(noHpTextField)
-                            .addComponent(jenisKelaminComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jenisKelaminComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(noHpTextField1)
+                            .addComponent(noHpTextField2))
                         .addGap(96, 96, 96)))
                 .addContainerGap())
         );
@@ -164,9 +183,13 @@ public class SignUpFrame extends javax.swing.JFrame {
                 .addComponent(noHpTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jenisKelaminComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(noHpTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(noHpTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(DaftarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         SignInKlik.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -351,6 +374,14 @@ public class SignUpFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SignInKlikMouseClicked
 
+    private void noHpTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHpTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_noHpTextField1ActionPerformed
+
+    private void noHpTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHpTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_noHpTextField2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -409,6 +440,8 @@ public class SignUpFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelJudulContent1;
     private javax.swing.JTextField namaTextField;
     private javax.swing.JTextField noHpTextField;
+    private javax.swing.JTextField noHpTextField1;
+    private javax.swing.JTextField noHpTextField2;
     private javax.swing.JPanel panelMain;
     private javax.swing.JTextField tanggalLahirTextField;
     // End of variables declaration//GEN-END:variables

@@ -234,7 +234,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
         );
 
         jLabel1.setForeground(new java.awt.Color(197, 31, 26));
-        jLabel1.setText("<html><i>Keterangan: Biaya perkelas senilai Rp100.000,00<i/><html>");
+        jLabel1.setText("<html><i>Keterangan: Paket kelas berlaku selama 6 bulan dengan harga Rp5.000.000,00/Paket.<i/><html>");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -242,7 +242,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -272,7 +272,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
                     .addComponent(labelTagihanPembayaran1)
                     .addComponent(labelTagihanPembayaran)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(501, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

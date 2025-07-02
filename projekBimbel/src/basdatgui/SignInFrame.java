@@ -241,8 +241,9 @@ public class SignInFrame extends javax.swing.JFrame {
             if (rs.next()) {
                 // Login sukses
                 JOptionPane.showMessageDialog(this, "Login berhasil. Selamat datang, " + nama + "!");
-                new BerandaFrame().setVisible(true); // lanjut ke halaman utama
-                this.dispose(); // tutup frame login
+                BerandaFrame beranda = new BerandaFrame();
+                beranda.setVisible(true);
+                this.dispose();
             } else {
                 // Login gagal
                 JOptionPane.showMessageDialog(this, "Nama atau email tidak cocok dengan database.", "Login Gagal", JOptionPane.ERROR_MESSAGE);

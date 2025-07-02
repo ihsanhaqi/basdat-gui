@@ -202,21 +202,16 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane1" pref="889" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="820" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                              <Component id="jScrollPane1" pref="897" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="665" max="-2" attributes="0"/>
-                                  <Component id="InputBtn" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="KlikKelasPilihan" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -230,9 +225,9 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="458" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="KlikKelasPilihan" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="InputBtn" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -312,12 +307,12 @@
                     <Property name="text" type="java.lang.String" value="JADWAL"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="InputBtn">
+                <Component class="javax.swing.JLabel" name="KlikKelasPilihan">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Input"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;Klik disini untuk melihat kelas yang dipilih.&lt;/u&gt;&lt;html&gt;"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputBtnActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KlikKelasPilihanMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -329,24 +324,30 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel1" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="KelasTF" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="KuotaTF" alignment="0" pref="256" max="32767" attributes="0"/>
-                              <Component id="PengajarTF" alignment="0" pref="256" max="32767" attributes="0"/>
-                              <Component id="MapelTF" alignment="0" pref="256" max="32767" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="HariTF" alignment="0" pref="256" max="32767" attributes="0"/>
-                              <Component id="JamMulaiTF" alignment="0" pref="256" max="32767" attributes="0"/>
-                              <Component id="JamSelesaiTF" alignment="0" pref="256" max="32767" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel1" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="KelasTF" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel4" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="KuotaTF" alignment="0" pref="256" max="32767" attributes="0"/>
+                                      <Component id="PengajarTF" alignment="0" pref="256" max="32767" attributes="0"/>
+                                      <Component id="MapelTF" alignment="0" pref="256" max="32767" attributes="0"/>
+                                      <Component id="jLabel7" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="HariTF" alignment="0" pref="256" max="32767" attributes="0"/>
+                                      <Component id="JamMulaiTF" alignment="0" pref="256" max="32767" attributes="0"/>
+                                      <Component id="JamSelesaiTF" alignment="0" pref="256" max="32767" attributes="0"/>
+                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="InputBtn" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -383,7 +384,9 @@
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JamSelesaiTF" min="-2" pref="35" max="-2" attributes="0"/>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="InputBtn" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace pref="39" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -486,6 +489,14 @@
                 <Component class="javax.swing.JTextField" name="JamSelesaiTF">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JamSelesaiTFActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="InputBtn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Input"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputBtnActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
