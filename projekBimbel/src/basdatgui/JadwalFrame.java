@@ -53,25 +53,8 @@ public class JadwalFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JadwalTabel = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        KlikKelasPilihan = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        KelasTF = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        KuotaTF = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        PengajarTF = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        MapelTF = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        HariTF = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        JamMulaiTF = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        JamSelesaiTF = new javax.swing.JTextField();
-        InputBtn = new javax.swing.JButton();
+        labelJadwal = new javax.swing.JLabel();
+        klikBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -166,11 +149,6 @@ public class JadwalFrame extends javax.swing.JFrame {
             }
         ));
         JadwalTabel.getTableHeader().setReorderingAllowed(false);
-        JadwalTabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JadwalTabelMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(JadwalTabel);
         if (JadwalTabel.getColumnModel().getColumnCount() > 0) {
             JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -183,13 +161,17 @@ public class JadwalFrame extends javax.swing.JFrame {
             JadwalTabel.getColumnModel().getColumn(6).setPreferredWidth(25);
         }
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("JADWAL");
+        labelJadwal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelJadwal.setText("JADWAL");
 
-        KlikKelasPilihan.setText("<html><u>Klik disini untuk melihat kelas yang dipilih.</u><html>");
-        KlikKelasPilihan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                KlikKelasPilihanMouseClicked(evt);
+        klikBtn.setText("<html><u>Klik disini untuk melihat kelas yang dipilih.</u><html>");
+        klikBtn.setBorderPainted(false);
+        klikBtn.setContentAreaFilled(false);
+        klikBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        klikBtn.setFocusPainted(false);
+        klikBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                klikBtnActionPerformed(evt);
             }
         });
 
@@ -203,8 +185,8 @@ public class JadwalFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(KlikKelasPilihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(klikBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelJadwal))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -212,151 +194,12 @@ public class JadwalFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel3)
+                .addComponent(labelJadwal)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(KlikKelasPilihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Kelas");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("TAMBAH JADWAL");
-
-        KelasTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KelasTFActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Kuota");
-
-        KuotaTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KuotaTFActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Pengajar");
-
-        PengajarTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PengajarTFActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Mata Pelajaran");
-
-        MapelTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MapelTFActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Hari");
-
-        HariTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HariTFActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Jam Mulai");
-
-        JamMulaiTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JamMulaiTFActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Jam Selesai");
-
-        JamSelesaiTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JamSelesaiTFActionPerformed(evt);
-            }
-        });
-
-        InputBtn.setText("Input");
-        InputBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputBtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(KelasTF)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(KuotaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(PengajarTF, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(MapelTF, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HariTF, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(JamMulaiTF, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(JamSelesaiTF, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(InputBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(KelasTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(KuotaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PengajarTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MapelTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HariTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JamMulaiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JamSelesaiTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(InputBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(klikBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -365,16 +208,11 @@ public class JadwalFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(280, 280, 280))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
@@ -430,87 +268,12 @@ public class JadwalFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
 
-    private void KelasTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelasTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KelasTFActionPerformed
-
-    private void KuotaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KuotaTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_KuotaTFActionPerformed
-
-    private void PengajarTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengajarTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PengajarTFActionPerformed
-
-    private void MapelTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapelTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MapelTFActionPerformed
-
-    private void HariTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HariTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HariTFActionPerformed
-
-    private void JamMulaiTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JamMulaiTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JamMulaiTFActionPerformed
-
-    private void JamSelesaiTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JamSelesaiTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JamSelesaiTFActionPerformed
-
-    private void InputBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputBtnActionPerformed
-        // TODO add your handling code here:
-    InputBtn.addActionListener(new ActionListener() {
-    public void actionPerformed(ActionEvent e) {
-        int selectedRow = JadwalTabel.getSelectedRow();
-        if (selectedRow >= 0) {
-            String idKelas = JadwalTabel.getValueAt(selectedRow, 0).toString();
-            String namaMapel = JadwalTabel.getValueAt(selectedRow, 3).toString();
-            KelasDipilih kelas = new KelasDipilih();
-            kelas.setIdKelas(idKelas);
-            kelas.setNamaMapel(namaMapel);
-
-            keranjangKelas.add(kelas);
-            JOptionPane.showMessageDialog(null, "Kelas berhasil ditambahkan ke keranjang!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Silakan pilih kelas terlebih dahulu.");
-        }
-    }
-});
-    
-    
-    }//GEN-LAST:event_InputBtnActionPerformed
-
-    private void KlikKelasPilihanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KlikKelasPilihanMouseClicked
+    private void klikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_klikBtnActionPerformed
         KelasPilihanFrame kelasPilihan = new KelasPilihanFrame();
         kelasPilihan.setVisible(true);
+        
         this.dispose();
-    }//GEN-LAST:event_KlikKelasPilihanMouseClicked
-
-    private void JadwalTabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JadwalTabelMouseClicked
-        // TODO add your handling code here:
-        int row = JadwalTabel.getSelectedRow(); // ambil baris yang diklik
-
-        if (row >= 0) {
-            // Ambil data dari kolom sesuai urutan di tabelmu
-            String kelas = JadwalTabel.getValueAt(row, 0).toString();
-            String kuota = JadwalTabel.getValueAt(row, 1).toString();
-            String pengajar = JadwalTabel.getValueAt(row, 2).toString();
-            String mapel = JadwalTabel.getValueAt(row, 3).toString();
-            String hari = JadwalTabel.getValueAt(row, 4).toString();
-            String jamMulai = JadwalTabel.getValueAt(row, 5).toString();
-            String jamSelesai = JadwalTabel.getValueAt(row, 6).toString();
-
-            // Isi textfield dengan data dari tabel
-            KelasTF.setText(kelas);
-            KuotaTF.setText(kuota);
-            PengajarTF.setText(pengajar);
-            MapelTF.setText(mapel);
-            HariTF.setText(hari);
-            JamMulaiTF.setText(jamMulai);
-            JamSelesaiTF.setText(jamSelesai);
-        }
-    }//GEN-LAST:event_JadwalTabelMouseClicked
+    }//GEN-LAST:event_klikBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,33 +330,16 @@ public class JadwalFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField HariTF;
-    private javax.swing.JButton InputBtn;
     private javax.swing.JTable JadwalTabel;
-    private javax.swing.JTextField JamMulaiTF;
-    private javax.swing.JTextField JamSelesaiTF;
-    private javax.swing.JTextField KelasTF;
-    private javax.swing.JLabel KlikKelasPilihan;
-    private javax.swing.JTextField KuotaTF;
-    private javax.swing.JTextField MapelTF;
-    private javax.swing.JTextField PengajarTF;
     private javax.swing.JButton btnBeranda;
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton klikBtn;
+    private javax.swing.JLabel labelJadwal;
     private javax.swing.JLabel labelJudul;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelMain;

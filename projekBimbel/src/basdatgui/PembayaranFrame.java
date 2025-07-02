@@ -66,15 +66,18 @@ public class PembayaranFrame extends javax.swing.JFrame {
         btnBiodata = new javax.swing.JButton();
         labelTagihanPembayaran = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        labelTagihan1 = new javax.swing.JLabel();
-        labelJumlahBayar1 = new javax.swing.JLabel();
+        labelTagihan = new javax.swing.JLabel();
+        labelNominalPembayaran = new javax.swing.JLabel();
         nominalField = new javax.swing.JTextField();
         labelMetodePembayaran = new javax.swing.JLabel();
-        labelJumlahBayar3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         rincianTextArea = new javax.swing.JTextArea();
         metodeComboBox = new javax.swing.JComboBox<>();
         SubmitBtn = new javax.swing.JButton();
+        labelPaket = new javax.swing.JLabel();
+        PaketComboBox = new javax.swing.JComboBox<>();
+        labelPeminatan = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         riwayatScrollPane = new javax.swing.JScrollPane();
@@ -168,10 +171,9 @@ public class PembayaranFrame extends javax.swing.JFrame {
         labelTagihanPembayaran.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelTagihanPembayaran.setText("Tagihan Pembayaran");
 
-        labelTagihan1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelTagihan1.setText("Tagihan");
+        labelTagihan.setText("Tagihan Rincian:");
 
-        labelJumlahBayar1.setText("Nominal Pembayaran: ");
+        labelNominalPembayaran.setText("Nominal Pembayaran:  ");
 
         nominalField.setEditable(false);
         nominalField.addActionListener(new java.awt.event.ActionListener() {
@@ -180,9 +182,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
             }
         });
 
-        labelMetodePembayaran.setText("Metode Pembayaran: ");
-
-        labelJumlahBayar3.setText("Rincian:");
+        labelMetodePembayaran.setText("Metode Pembayaran:   ");
 
         rincianTextArea.setColumns(20);
         rincianTextArea.setRows(5);
@@ -202,52 +202,62 @@ public class PembayaranFrame extends javax.swing.JFrame {
             }
         });
 
+        labelPaket.setText("Paket Kelas:");
+
+        PaketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6 Bulan", "1 Tahun" }));
+
+        labelPeminatan.setText("Peminatan: ");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MIPA", "Soshum", "Bahasa" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(labelTagihan1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelMetodePembayaran)
-                            .addComponent(labelJumlahBayar1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelJumlahBayar3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))))
+                    .addComponent(labelNominalPembayaran)
+                    .addComponent(labelMetodePembayaran)
+                    .addComponent(labelTagihan)
+                    .addComponent(labelPeminatan)
+                    .addComponent(labelPaket))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PaketComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelTagihan1)
-                        .addComponent(labelJumlahBayar3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPaket)
+                    .addComponent(PaketComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelJumlahBayar1)
+                    .addComponent(labelPeminatan)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTagihan))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNominalPembayaran)
                     .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelMetodePembayaran)
                     .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SubmitBtn)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         jLabel1.setForeground(new java.awt.Color(197, 31, 26));
@@ -289,7 +299,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
                     .addComponent(labelTagihanPembayaran1)
                     .addComponent(labelTagihanPembayaran)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(501, Short.MAX_VALUE))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,10 +309,10 @@ public class PembayaranFrame extends javax.swing.JFrame {
                 .addComponent(labelTagihanPembayaran)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelTagihanPembayaran1)
                 .addGap(18, 18, 18)
-                .addComponent(riwayatScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTagihanPembayaran1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(riwayatScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -424,20 +434,23 @@ public class PembayaranFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> PaketComboBox;
     private javax.swing.JButton SubmitBtn;
     private javax.swing.JButton btnBeranda;
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelJudul;
-    private javax.swing.JLabel labelJumlahBayar1;
-    private javax.swing.JLabel labelJumlahBayar3;
     private javax.swing.JLabel labelMetodePembayaran;
-    private javax.swing.JLabel labelTagihan1;
+    private javax.swing.JLabel labelNominalPembayaran;
+    private javax.swing.JLabel labelPaket;
+    private javax.swing.JLabel labelPeminatan;
+    private javax.swing.JLabel labelTagihan;
     private javax.swing.JLabel labelTagihanPembayaran;
     private javax.swing.JLabel labelTagihanPembayaran1;
     private javax.swing.JComboBox<String> metodeComboBox;
