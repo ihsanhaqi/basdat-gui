@@ -241,7 +241,7 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame("USER1");
+        BiodataFrame biodata = new BiodataFrame();
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed

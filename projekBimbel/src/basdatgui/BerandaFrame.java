@@ -171,13 +171,13 @@ public class BerandaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnJadwalActionPerformed
 
     private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
-        PembayaranFrame pembayaran = new PembayaranFrame();
-        pembayaran.setVisible(true);
-        this.dispose();
+//        PembayaranFrame pembayaran = new PembayaranFrame();
+//        pembayaran.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame("USER1");
+        BiodataFrame biodata = new BiodataFrame();
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed

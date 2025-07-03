@@ -263,7 +263,7 @@ public class JadwalFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_klikBtnActionPerformed
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame("USER1");
+        BiodataFrame biodata = new BiodataFrame();
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed
