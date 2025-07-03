@@ -269,9 +269,9 @@ public class JadwalFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBiodataActionPerformed
 
     private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
-        PembayaranFrame pembayaran = new PembayaranFrame();
-        pembayaran.setVisible(true);
-        this.dispose();
+//        PembayaranFrame pembayaran = new PembayaranFrame();
+//        pembayaran.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
     private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
@@ -281,7 +281,7 @@ public class JadwalFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnJadwalActionPerformed
 
     private void btnBerandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerandaActionPerformed
-        JadwalFrame beranda = new JadwalFrame();
+        BerandaFrame beranda = new BerandaFrame();
         beranda.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
@@ -289,24 +289,26 @@ public class JadwalFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private void loadJadwalTable(){
+        private void loadJadwalTable() {
         DefaultTableModel model = (DefaultTableModel) JadwalTabel.getModel();
-        List<KelasDipilih> dataJadwal = JadwalDAO.getAllJadwal();
+        model.setRowCount(0); 
 
-    for (KelasDipilih row : dataJadwal) {
-        Object[] rowData = new Object[]{
-            row.getIdKelas(),
-            row.getKuota(),
-            row.getIdPegawai(),
-            row.getNamaMapel(),
-            row.getHari(),
-            row.getJamMulai(),
-            row.getJamSelesai()
-        };
-        model.addRow(rowData);
-        
-    }
-}
+        List<KelasDipilih> dataJadwal = JadwalDAO.getAllJadwal();
+        for (KelasDipilih row : dataJadwal) {
+            Object[] rowData = new Object[]{
+                row.getNamaKelas(),
+                row.getNamaMapel(),
+                row.getNamaPengajar(),
+                row.getHari(),
+                row.getJamMulai(),
+                row.getJamSelesai(),
+                row.getNamaRuangan(),
+                row.getKapasitas()
+            };
+            model.addRow(rowData);
+        }
+    
+        }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

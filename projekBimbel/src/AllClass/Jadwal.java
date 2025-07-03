@@ -1,36 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package AllClass;
 
-/**
- *
- * @author ASUS
- */
 public class Jadwal {
-    private String id_jadwal;
+    private String idJadwal;
     private String hari;
-    private String jam_mulai;
-    private String jam_selesai;
-    private String id_kelas; // FK ke Kelas
+    private String jamMulai;
+    private String jamSelesai;
 
-    // Constructor
-    public Jadwal(String id_jadwal, String hari, String jam_mulai, String jam_selesai, String id_kelas) {
-        this.id_jadwal = id_jadwal;
+    public Jadwal() {
+    }
+
+    public Jadwal(String idJadwal, String hari, String jamMulai, String jamSelesai) {
+        this.idJadwal = idJadwal;
         this.hari = hari;
-        this.jam_mulai = jam_mulai;
-        this.jam_selesai = jam_selesai;
-        this.id_kelas = id_kelas;
+        this.jamMulai = jamMulai;
+        this.jamSelesai = jamSelesai;
     }
 
-    // Getter dan Setter
     public String getIdJadwal() {
-        return id_jadwal;
+        return idJadwal;
     }
 
-    public void setIdJadwal(String id_jadwal) {
-        this.id_jadwal = id_jadwal;
+    public void setIdJadwal(String idJadwal) {
+        this.idJadwal = idJadwal;
     }
 
     public String getHari() {
@@ -42,26 +33,18 @@ public class Jadwal {
     }
 
     public String getJamMulai() {
-        return jam_mulai;
+        return jamMulai;
     }
 
-    public void setJamMulai(String jam_mulai) {
-        this.jam_mulai = jam_mulai;
+    public void setJamMulai(String jamMulai) {
+        this.jamMulai = jamMulai;
     }
 
     public String getJamSelesai() {
-        return jam_selesai;
+        return jamSelesai;
     }
 
-    public void setJamSelesai(String jam_selesai) {
-        this.jam_selesai = jam_selesai;
-    }
-
-    public String getIdKelas() {
-        return id_kelas;
-    }
-
-    public void setIdKelas(String id_kelas) {
-        this.id_kelas = id_kelas;
+    public void setJamSelesai(String jamSelesai) {
+        this.jamSelesai = jamSelesai;
     }
 }

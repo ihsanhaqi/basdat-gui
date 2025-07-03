@@ -28,7 +28,7 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
      */
     public KelasPilihanFrame() {
         initComponents();
-        loadJadwalTable();
+        loadTabelKelasPilihan();
     }
     public static ArrayList<KelasDipilih> getKeranjangKelas(){
         return keranjangKelas;
@@ -52,8 +52,9 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JadwalTabel = new javax.swing.JTable();
+        TabelKelasPilihan = new javax.swing.JTable();
         labelJadwal = new javax.swing.JLabel();
+        btnHapus = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -139,7 +140,7 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        JadwalTabel.setModel(new javax.swing.table.DefaultTableModel(
+        TabelKelasPilihan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -155,29 +156,36 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JadwalTabel.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(JadwalTabel);
-        if (JadwalTabel.getColumnModel().getColumnCount() > 0) {
-            JadwalTabel.getColumnModel().getColumn(0).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(10);
-            JadwalTabel.getColumnModel().getColumn(1).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(1).setPreferredWidth(50);
-            JadwalTabel.getColumnModel().getColumn(2).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(2).setPreferredWidth(40);
-            JadwalTabel.getColumnModel().getColumn(3).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(3).setPreferredWidth(15);
-            JadwalTabel.getColumnModel().getColumn(4).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(4).setPreferredWidth(10);
-            JadwalTabel.getColumnModel().getColumn(5).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(5).setPreferredWidth(10);
-            JadwalTabel.getColumnModel().getColumn(6).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(6).setPreferredWidth(1);
-            JadwalTabel.getColumnModel().getColumn(7).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(7).setPreferredWidth(1);
+        TabelKelasPilihan.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(TabelKelasPilihan);
+        if (TabelKelasPilihan.getColumnModel().getColumnCount() > 0) {
+            TabelKelasPilihan.getColumnModel().getColumn(0).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(0).setPreferredWidth(10);
+            TabelKelasPilihan.getColumnModel().getColumn(1).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(1).setPreferredWidth(50);
+            TabelKelasPilihan.getColumnModel().getColumn(2).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(2).setPreferredWidth(40);
+            TabelKelasPilihan.getColumnModel().getColumn(3).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(3).setPreferredWidth(15);
+            TabelKelasPilihan.getColumnModel().getColumn(4).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(4).setPreferredWidth(10);
+            TabelKelasPilihan.getColumnModel().getColumn(5).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(5).setPreferredWidth(10);
+            TabelKelasPilihan.getColumnModel().getColumn(6).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(6).setPreferredWidth(1);
+            TabelKelasPilihan.getColumnModel().getColumn(7).setResizable(false);
+            TabelKelasPilihan.getColumnModel().getColumn(7).setPreferredWidth(1);
         }
 
         labelJadwal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelJadwal.setText("KELAS PILIHAN");
+
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -185,9 +193,11 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelJadwal)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnHapus)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelJadwal)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -197,7 +207,9 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
                 .addComponent(labelJadwal)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
-                .addGap(78, 78, 78))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnHapus)
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -247,9 +259,9 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBiodataActionPerformed
 
     private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
-        PembayaranFrame pembayaran = new PembayaranFrame();
-        pembayaran.setVisible(true);
-        this.dispose();
+//        PembayaranFrame pembayaran = new PembayaranFrame();
+//        pembayaran.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
     private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
@@ -264,27 +276,40 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
 
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = TabelKelasPilihan.getSelectedRow();
+        if (selectedRow >= 0) {
+        JadwalFrame.getKeranjangKelas().remove(selectedRow);
+        loadTabelKelasPilihan(); // refresh tabel
+        } else {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dihapus.");
+        }
+    }//GEN-LAST:event_btnHapusActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    private void loadJadwalTable(){
-        DefaultTableModel model = (DefaultTableModel) JadwalTabel.getModel();
-        List<KelasDipilih> dataJadwal = JadwalDAO.getAllJadwal();
+    private void loadTabelKelasPilihan() {
+    DefaultTableModel model = (DefaultTableModel) TabelKelasPilihan.getModel();
+    model.setRowCount(0); // reset data
 
-    for (KelasDipilih row : dataJadwal) {
+    ArrayList<KelasDipilih> kelasTerpilih = JadwalFrame.getKeranjangKelas();
+    for (KelasDipilih row : kelasTerpilih) {
         Object[] rowData = new Object[]{
-            row.getIdKelas(),
-            row.getKuota(),
-            row.getIdPegawai(),
+            row.getNamaKelas(),
             row.getNamaMapel(),
+            row.getNamaPengajar(),
             row.getHari(),
             row.getJamMulai(),
-            row.getJamSelesai()
+            row.getJamSelesai(),
+            row.getNamaRuangan(),
+            row.getKapasitas()
         };
         model.addRow(rowData);
-        
+        }
     }
-}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -325,9 +350,10 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JadwalTabel;
+    private javax.swing.JTable TabelKelasPilihan;
     private javax.swing.JButton btnBeranda;
     private javax.swing.JButton btnBiodata;
+    private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
     private javax.swing.JPanel jPanel1;

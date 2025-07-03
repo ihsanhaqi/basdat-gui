@@ -1,53 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package AllClass;
 
 public class KelasDipilih {
-    private String idKelas;
-    private int kuota;
-    private String idPegawai;
+    private String namaKelas;
     private String namaMapel;
+    private String namaPengajar;
     private String hari;
     private String jamMulai;
     private String jamSelesai;
+    private String namaRuangan;
+    private int kapasitas;
 
     public KelasDipilih() {
     }
 
-    public KelasDipilih(String idKelas, int kuota, String idPegawai, String namaMapel, String hari, String jamMulai, String jamSelesai) {
-        this.idKelas = idKelas;
-        this.kuota = kuota;
-        this.idPegawai = idPegawai;
+    public KelasDipilih(String namaKelas, String namaMapel, String namaPengajar,
+                        String hari, String jamMulai, String jamSelesai,
+                        String namaRuangan, int kapasitas) {
+        this.namaKelas = namaKelas;
         this.namaMapel = namaMapel;
+        this.namaPengajar = namaPengajar;
         this.hari = hari;
         this.jamMulai = jamMulai;
         this.jamSelesai = jamSelesai;
+        this.namaRuangan = namaRuangan;
+        this.kapasitas = kapasitas;
     }
 
-    public String getIdKelas() {
-        return idKelas;
+    // Getter & Setter
+    public String getNamaKelas() {
+        return namaKelas;
     }
 
-    public void setIdKelas(String idKelas) {
-        this.idKelas = idKelas;
-    }
-
-    public int getKuota() {
-        return kuota;
-    }
-
-    public void setKuota(int kuota) {
-        this.kuota = kuota;
-    }
-
-    public String getIdPegawai() {
-        return idPegawai;
-    }
-
-    public void setIdPegawai(String idPegawai) {
-        this.idPegawai = idPegawai;
+    public void setNamaKelas(String namaKelas) {
+        this.namaKelas = namaKelas;
     }
 
     public String getNamaMapel() {
@@ -56,6 +41,14 @@ public class KelasDipilih {
 
     public void setNamaMapel(String namaMapel) {
         this.namaMapel = namaMapel;
+    }
+
+    public String getNamaPengajar() {
+        return namaPengajar;
+    }
+
+    public void setNamaPengajar(String namaPengajar) {
+        this.namaPengajar = namaPengajar;
     }
 
     public String getHari() {
@@ -80,5 +73,21 @@ public class KelasDipilih {
 
     public void setJamSelesai(String jamSelesai) {
         this.jamSelesai = jamSelesai;
+    }
+
+    public String getNamaRuangan() {
+        return namaRuangan;
+    }
+
+    public void setNamaRuangan(String namaRuangan) {
+        this.namaRuangan = namaRuangan;
+    }
+
+    public int getKapasitas() {
+        return kapasitas;
+    }
+
+    public void setKapasitas(int kapasitas) {
+        this.kapasitas = kapasitas;
     }
 }
