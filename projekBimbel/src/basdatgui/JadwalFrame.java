@@ -116,7 +116,7 @@ public class JadwalFrame extends javax.swing.JFrame {
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(labelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
                 .addComponent(btnBeranda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnJadwal)
@@ -145,20 +145,36 @@ public class JadwalFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Kelas ", "Kuota", "Pengajar", "Mata Pelajaran", "Hari", "Jam Mulai", "Jam Selesai"
+                "Kelas ", "Mata Pelajaran", "Pengajar", "Hari", "Jam Mulai", "Jam Selesai", "Ruangan", "Kapasitas"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JadwalTabel.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(JadwalTabel);
         if (JadwalTabel.getColumnModel().getColumnCount() > 0) {
-            JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(25);
+            JadwalTabel.getColumnModel().getColumn(0).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(10);
             JadwalTabel.getColumnModel().getColumn(1).setResizable(false);
-            JadwalTabel.getColumnModel().getColumn(1).setPreferredWidth(20);
+            JadwalTabel.getColumnModel().getColumn(1).setPreferredWidth(50);
+            JadwalTabel.getColumnModel().getColumn(2).setResizable(false);
             JadwalTabel.getColumnModel().getColumn(2).setPreferredWidth(40);
-            JadwalTabel.getColumnModel().getColumn(3).setPreferredWidth(40);
-            JadwalTabel.getColumnModel().getColumn(4).setPreferredWidth(25);
-            JadwalTabel.getColumnModel().getColumn(5).setPreferredWidth(25);
-            JadwalTabel.getColumnModel().getColumn(6).setPreferredWidth(25);
+            JadwalTabel.getColumnModel().getColumn(3).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(3).setPreferredWidth(15);
+            JadwalTabel.getColumnModel().getColumn(4).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(4).setPreferredWidth(10);
+            JadwalTabel.getColumnModel().getColumn(5).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(5).setPreferredWidth(10);
+            JadwalTabel.getColumnModel().getColumn(6).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(6).setPreferredWidth(1);
+            JadwalTabel.getColumnModel().getColumn(7).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(7).setPreferredWidth(1);
         }
 
         labelJadwal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -182,13 +198,10 @@ public class JadwalFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(klikBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelJadwal))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(klikBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelJadwal)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,19 +209,17 @@ public class JadwalFrame extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(labelJadwal)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(klikBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(280, 280, 280))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,17 +255,12 @@ public class JadwalFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
-        JadwalFrame jadwal = new JadwalFrame();
-        jadwal.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnJadwalActionPerformed
+    private void klikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_klikBtnActionPerformed
+        KelasPilihanFrame kelasPilihan = new KelasPilihanFrame();
+        kelasPilihan.setVisible(true);
 
-    private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
-        PembayaranFrame pembayaran = new PembayaranFrame();
-        pembayaran.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnPembayaranActionPerformed
+    }//GEN-LAST:event_klikBtnActionPerformed
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
         BiodataFrame biodata = new BiodataFrame("USER1");
@@ -262,18 +268,23 @@ public class JadwalFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed
 
+    private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
+        PembayaranFrame pembayaran = new PembayaranFrame();
+        pembayaran.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnPembayaranActionPerformed
+
+    private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
+        JadwalFrame jadwal = new JadwalFrame();
+        jadwal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnJadwalActionPerformed
+
     private void btnBerandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerandaActionPerformed
         JadwalFrame beranda = new JadwalFrame();
         beranda.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
-
-    private void klikBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_klikBtnActionPerformed
-        KelasPilihanFrame kelasPilihan = new KelasPilihanFrame();
-        kelasPilihan.setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_klikBtnActionPerformed
 
     /**
      * @param args the command line arguments

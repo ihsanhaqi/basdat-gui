@@ -77,7 +77,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
         labelPaket = new javax.swing.JLabel();
         PaketComboBox = new javax.swing.JComboBox<>();
         labelPeminatan = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         riwayatScrollPane = new javax.swing.JScrollPane();
@@ -204,11 +204,16 @@ public class PembayaranFrame extends javax.swing.JFrame {
 
         labelPaket.setText("Paket Kelas:");
 
-        PaketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6 Bulan", "1 Tahun" }));
+        PaketComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paket 1 : 5.000.000.00 (6 bulan)", "1 Tahun" }));
+        PaketComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaketComboBoxActionPerformed(evt);
+            }
+        });
 
         labelPeminatan.setText("Peminatan: ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MIPA", "Soshum", "Bahasa" }));
+        jCheckBox1.setText("MIPA");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,8 +234,8 @@ public class PembayaranFrame extends javax.swing.JFrame {
                     .addComponent(SubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PaketComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(jCheckBox1))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,8 +247,8 @@ public class PembayaranFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPeminatan)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                    .addComponent(jCheckBox1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelTagihan))
@@ -252,7 +257,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
                     .addComponent(labelNominalPembayaran)
                     .addComponent(nominalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelMetodePembayaran)
                     .addComponent(metodeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -299,7 +304,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
                     .addComponent(labelTagihanPembayaran1)
                     .addComponent(labelTagihanPembayaran)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addContainerGap(369, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,6 +381,10 @@ public class PembayaranFrame extends javax.swing.JFrame {
     private void nominalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nominalFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nominalFieldActionPerformed
+
+    private void PaketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaketComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PaketComboBoxActionPerformed
     private final int HARGA_PER_KELAS = 100000; // 100 ribu
 
     private void updateRincianPembayaran() {
@@ -440,7 +449,7 @@ public class PembayaranFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
     private javax.swing.JButton btnPembayaran;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

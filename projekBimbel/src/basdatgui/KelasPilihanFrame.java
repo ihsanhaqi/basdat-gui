@@ -1,22 +1,38 @@
+package basdatgui;
+
+import AllClass.JadwalDAO;
+import AllClass.KelasDipilih;
+import basdatgui.BiodataFrame;
+import basdatgui.PembayaranFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package basdatgui;
+
 
 /**
  *
  * @author Regina Anky Chandra
  */
 public class KelasPilihanFrame extends javax.swing.JFrame {
-
+        private static ArrayList<KelasDipilih> keranjangKelas = new ArrayList<>();
     /**
      * Creates new form BerandaFrame
      */
     public KelasPilihanFrame() {
         initComponents();
+        loadJadwalTable();
     }
-
+    public static ArrayList<KelasDipilih> getKeranjangKelas(){
+        return keranjangKelas;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,9 +52,8 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        labelKelasPilihan = new javax.swing.JLabel();
-        PerbaruiBtn = new javax.swing.JButton();
+        JadwalTabel = new javax.swing.JTable();
+        labelJadwal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -100,7 +115,7 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(labelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
                 .addComponent(btnBeranda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnJadwal)
@@ -124,37 +139,45 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(920, 697));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JadwalTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Kelas ", "Kuota", "Pengajar", "Mata Pelajaran", "Hari", "Jam Mulai", "Jam Selesai"
+                "Kelas ", "Mata Pelajaran", "Pengajar", "Hari", "Jam Mulai", "Jam Selesai", "Ruangan", "Kapasitas"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(25);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(40);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(40);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(25);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(25);
-            jTable1.getColumnModel().getColumn(6).setPreferredWidth(25);
-        }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
 
-        labelKelasPilihan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelKelasPilihan.setText("KELAS PILIHAN");
-
-        PerbaruiBtn.setText("Perbarui");
-        PerbaruiBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PerbaruiBtnActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        JadwalTabel.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(JadwalTabel);
+        if (JadwalTabel.getColumnModel().getColumnCount() > 0) {
+            JadwalTabel.getColumnModel().getColumn(0).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(0).setPreferredWidth(10);
+            JadwalTabel.getColumnModel().getColumn(1).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(1).setPreferredWidth(50);
+            JadwalTabel.getColumnModel().getColumn(2).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(2).setPreferredWidth(40);
+            JadwalTabel.getColumnModel().getColumn(3).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(3).setPreferredWidth(15);
+            JadwalTabel.getColumnModel().getColumn(4).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(4).setPreferredWidth(10);
+            JadwalTabel.getColumnModel().getColumn(5).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(5).setPreferredWidth(10);
+            JadwalTabel.getColumnModel().getColumn(6).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(6).setPreferredWidth(1);
+            JadwalTabel.getColumnModel().getColumn(7).setResizable(false);
+            JadwalTabel.getColumnModel().getColumn(7).setPreferredWidth(1);
+        }
+
+        labelJadwal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelJadwal.setText("KELAS PILIHAN");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -163,32 +186,25 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(labelKelasPilihan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PerbaruiBtn)))
-                .addContainerGap())
+                    .addComponent(labelJadwal)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelKelasPilihan)
-                    .addComponent(PerbaruiBtn))
+                .addComponent(labelJadwal)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addGap(78, 78, 78))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 280, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +240,11 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
-        KelasPilihanFrame jadwal = new KelasPilihanFrame();
-        jadwal.setVisible(true);
+    private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
+        BiodataFrame biodata = new BiodataFrame("USER1");
+        biodata.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnJadwalActionPerformed
+    }//GEN-LAST:event_btnBiodataActionPerformed
 
     private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
         PembayaranFrame pembayaran = new PembayaranFrame();
@@ -236,11 +252,11 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
-    private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame("USER1");
-        biodata.setVisible(true);
+    private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
+        KelasPilihanFrame jadwal = new KelasPilihanFrame();
+        jadwal.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnBiodataActionPerformed
+    }//GEN-LAST:event_btnJadwalActionPerformed
 
     private void btnBerandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerandaActionPerformed
         KelasPilihanFrame beranda = new KelasPilihanFrame();
@@ -248,13 +264,27 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
 
-    private void PerbaruiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerbaruiBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PerbaruiBtnActionPerformed
-
     /**
      * @param args the command line arguments
      */
+    private void loadJadwalTable(){
+        DefaultTableModel model = (DefaultTableModel) JadwalTabel.getModel();
+        List<KelasDipilih> dataJadwal = JadwalDAO.getAllJadwal();
+
+    for (KelasDipilih row : dataJadwal) {
+        Object[] rowData = new Object[]{
+            row.getIdKelas(),
+            row.getKuota(),
+            row.getIdPegawai(),
+            row.getNamaMapel(),
+            row.getHari(),
+            row.getJamMulai(),
+            row.getJamSelesai()
+        };
+        model.addRow(rowData);
+        
+    }
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -295,7 +325,7 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton PerbaruiBtn;
+    private javax.swing.JTable JadwalTabel;
     private javax.swing.JButton btnBeranda;
     private javax.swing.JButton btnBiodata;
     private javax.swing.JButton btnJadwal;
@@ -303,9 +333,8 @@ public class KelasPilihanFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelJadwal;
     private javax.swing.JLabel labelJudul;
-    private javax.swing.JLabel labelKelasPilihan;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelMain;
     // End of variables declaration//GEN-END:variables

@@ -59,7 +59,7 @@
                       <Component id="labelTagihanPembayaran" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="458" max="32767" attributes="0"/>
+                  <EmptySpace pref="369" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -217,9 +217,9 @@
                           <Component id="SubmitBtn" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="530" max="-2" attributes="0"/>
                           <Component id="PaketComboBox" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace pref="102" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -234,9 +234,9 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelPeminatan" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           <Component id="labelTagihan" min="-2" max="-2" attributes="0"/>
@@ -247,9 +247,9 @@
                           <Component id="nominalField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelMetodePembayaran" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="metodeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="metodeComboBox" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="SubmitBtn" min="-2" max="-2" attributes="0"/>
@@ -331,11 +331,14 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
-                    <StringItem index="0" value="6 Bulan"/>
+                    <StringItem index="0" value="Paket 1 : 5.000.000.00 (6 bulan)"/>
                     <StringItem index="1" value="1 Tahun"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PaketComboBoxActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -345,19 +348,10 @@
                 <Property name="text" type="java.lang.String" value="Peminatan: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="MIPA"/>
-                    <StringItem index="1" value="Soshum"/>
-                    <StringItem index="2" value="Bahasa"/>
-                  </StringArray>
-                </Property>
+                <Property name="text" type="java.lang.String" value="MIPA"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
