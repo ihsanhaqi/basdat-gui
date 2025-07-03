@@ -17,14 +17,14 @@ public class BiodataFrame extends javax.swing.JFrame {
     /**
      * Creates new form BerandaFrame
      */
-    public BiodataFrame(String idPelajar) {
+    public BiodataFrame() {
         initComponents();
-        tampilkanDataPelajar(idPelajar);
-    }
-    private void tampilkanDataPelajar(String idPelajar) {
-        PelajarDAO dao = new PelajarDAO();
-        Pelajar p = dao.getPelajarById(idPelajar);
+        Pelajar p = Pelajar.getCurrentPelajar();
         if (p != null) {
+            tampilkanDataPelajar(p);
+        }
+    }
+    private void tampilkanDataPelajar(Pelajar p) {
             txtNama.setText(p.getNama());
             txtID.setText(p.getIdPelajar());
             txtTanggalLahir.setText(p.getTanggalLahir());
@@ -32,7 +32,8 @@ public class BiodataFrame extends javax.swing.JFrame {
             txtEmail.setText(p.getEmail());
             txtNomorHp.setText(p.getNomorHp());
             txtJenisKelamin.setText(p.getJenisKelamin());
-        }
+            txtAsalSekolah.setText(p.getAsalSekolah());
+            txtAngkatan.setText(p.getAngkatan());
     }
 
     /**
@@ -67,9 +68,9 @@ public class BiodataFrame extends javax.swing.JFrame {
         txtNomorHp = new javax.swing.JTextField();
         txtJenisKelamin = new javax.swing.JTextField();
         labelJenisKelamin1 = new javax.swing.JLabel();
-        txtJenisKelamin1 = new javax.swing.JTextField();
+        txtAsalSekolah = new javax.swing.JTextField();
         labelJenisKelamin2 = new javax.swing.JLabel();
-        txtJenisKelamin2 = new javax.swing.JTextField();
+        txtAngkatan = new javax.swing.JTextField();
         SimpanBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,12 +202,12 @@ public class BiodataFrame extends javax.swing.JFrame {
         labelJenisKelamin1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelJenisKelamin1.setText("Asal Sekolah: ");
 
-        txtJenisKelamin1.setEditable(false);
+        txtAsalSekolah.setEditable(false);
 
         labelJenisKelamin2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelJenisKelamin2.setText("Angkatan: ");
 
-        txtJenisKelamin2.setEditable(false);
+        txtAngkatan.setEditable(false);
 
         SimpanBtn.setText("Simpan");
 
@@ -218,7 +219,7 @@ public class BiodataFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelMainLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(778, Short.MAX_VALUE)
                         .addComponent(SimpanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelMainLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -250,8 +251,8 @@ public class BiodataFrame extends javax.swing.JFrame {
                                     .addComponent(labelJenisKelamin2))
                                 .addGap(26, 26, 26)
                                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtJenisKelamin2)
-                                    .addComponent(txtJenisKelamin1))))))
+                                    .addComponent(txtAngkatan)
+                                    .addComponent(txtAsalSekolah))))))
                 .addGap(335, 335, 335))
         );
         panelMainLayout.setVerticalGroup(
@@ -291,11 +292,11 @@ public class BiodataFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelJenisKelamin1)
-                    .addComponent(txtJenisKelamin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAsalSekolah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelJenisKelamin2)
-                    .addComponent(txtJenisKelamin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(SimpanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 214, Short.MAX_VALUE))
@@ -316,25 +317,25 @@ public class BiodataFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBiodataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiodataActionPerformed
-        BiodataFrame biodata = new BiodataFrame("USER1");
+        BiodataFrame biodata = new BiodataFrame ();
         biodata.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBiodataActionPerformed
 
     private void btnPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPembayaranActionPerformed
-        PembayaranFrame pembayaran = new PembayaranFrame();
-        pembayaran.setVisible(true);
-        this.dispose();
+//        PembayaranFrame pembayaran = new PembayaranFrame();
+//        pembayaran.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_btnPembayaranActionPerformed
 
     private void btnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJadwalActionPerformed
-        JadwalFrame jadwal = new JadwalFrame();
-        jadwal.setVisible(true);
-        this.dispose();
+//        JadwalFrame jadwal = new JadwalFrame();
+//        jadwal.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_btnJadwalActionPerformed
 
     private void btnBerandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerandaActionPerformed
-        BiodataFrame beranda = new BiodataFrame("USER1");
+        BerandaFrame beranda = new BerandaFrame();
         beranda.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBerandaActionPerformed
@@ -357,6 +358,8 @@ public class BiodataFrame extends javax.swing.JFrame {
 //                txtEmail.setText(rs.getString("email"));
 //                txtNomorHP.setText(rs.getString("nomor_hp"));
 //                txtJenisKelamin.setText(rs.getString("jenis_kelamin"));
+//                txtAsalSekolah.setText(rs.getString("asal_Sekolah"));
+//                txtAngkatan.setText(rs.getString("angkatan"));
 //            } else {
 //                JOptionPane.showMessageDialog(this, "Data tidak ditemukan.");
 //            }
@@ -398,7 +401,7 @@ public class BiodataFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BiodataFrame("USER1").setVisible(true);
+                new BiodataFrame().setVisible(true);
             }
         });
     }
@@ -423,11 +426,11 @@ public class BiodataFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelMain;
     private javax.swing.JTextField txtAlamat;
+    private javax.swing.JTextField txtAngkatan;
+    private javax.swing.JTextField txtAsalSekolah;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtJenisKelamin;
-    private javax.swing.JTextField txtJenisKelamin1;
-    private javax.swing.JTextField txtJenisKelamin2;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtNomorHp;
     private javax.swing.JTextField txtTanggalLahir;

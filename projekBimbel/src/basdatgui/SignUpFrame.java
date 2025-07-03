@@ -4,6 +4,8 @@
  */
 package basdatgui;
 
+import AllClass.Pelajar;
+import AllClass.PelajarDAO;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -22,13 +24,7 @@ public class SignUpFrame extends javax.swing.JFrame {
      */
     public SignUpFrame() {
         initComponents();
-//        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/11zon_resized-removebg-preview.png")));
-//        URL imgUrl = getClass().getResource("/images/11zon_resized-removebg-preview.png");
-//        if (imgUrl == null) {
-//            System.err.println("Gambar tidak ditemukan!");
-//        } else {
-//            jLabel1.setIcon(new ImageIcon(imgUrl));
-//        }
+        
     }
 
     /**
@@ -52,8 +48,8 @@ public class SignUpFrame extends javax.swing.JFrame {
         emailTextField = new javax.swing.JTextField();
         noHpTextField = new javax.swing.JTextField();
         jenisKelaminComboBox = new javax.swing.JComboBox<>();
-        noHpTextField1 = new javax.swing.JTextField();
-        noHpTextField2 = new javax.swing.JTextField();
+        asalSekolahTextField = new javax.swing.JTextField();
+        angkatanTextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         SignInKlik = new javax.swing.JLabel();
         SignUpKlik = new javax.swing.JLabel();
@@ -99,7 +95,7 @@ public class SignUpFrame extends javax.swing.JFrame {
         });
 
         tanggalLahirTextField.setForeground(new java.awt.Color(153, 153, 153));
-        tanggalLahirTextField.setText("Tanggal Lahir [yyyy:MM:dd]");
+        tanggalLahirTextField.setText("Tanggal Lahir [yyyy-MM-dd]");
         tanggalLahirTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tanggalLahirTextFieldActionPerformed(evt);
@@ -132,19 +128,19 @@ public class SignUpFrame extends javax.swing.JFrame {
 
         jenisKelaminComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
-        noHpTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        noHpTextField1.setText("Asal Sekolah");
-        noHpTextField1.addActionListener(new java.awt.event.ActionListener() {
+        asalSekolahTextField.setForeground(new java.awt.Color(153, 153, 153));
+        asalSekolahTextField.setText("Asal Sekolah");
+        asalSekolahTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noHpTextField1ActionPerformed(evt);
+                asalSekolahTextFieldActionPerformed(evt);
             }
         });
 
-        noHpTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        noHpTextField2.setText("Angkatan");
-        noHpTextField2.addActionListener(new java.awt.event.ActionListener() {
+        angkatanTextField.setForeground(new java.awt.Color(153, 153, 153));
+        angkatanTextField.setText("Angkatan");
+        angkatanTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noHpTextField2ActionPerformed(evt);
+                angkatanTextFieldActionPerformed(evt);
             }
         });
 
@@ -168,8 +164,8 @@ public class SignUpFrame extends javax.swing.JFrame {
                             .addComponent(emailTextField)
                             .addComponent(noHpTextField)
                             .addComponent(jenisKelaminComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(noHpTextField1)
-                            .addComponent(noHpTextField2))
+                            .addComponent(asalSekolahTextField)
+                            .addComponent(angkatanTextField))
                         .addGap(96, 96, 96)))
                 .addContainerGap())
         );
@@ -195,9 +191,9 @@ public class SignUpFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jenisKelaminComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(noHpTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(asalSekolahTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(noHpTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(angkatanTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(DaftarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(141, Short.MAX_VALUE))
@@ -317,6 +313,8 @@ public class SignUpFrame extends javax.swing.JFrame {
         String email = emailTextField.getText().trim();
         String noHp = noHpTextField.getText().trim();
         String jenisKelamin = (String) jenisKelaminComboBox.getSelectedItem();
+        String asalSekolah = asalSekolahTextField.getText().trim();
+        String angkatan = angkatanTextField.getText().trim();
         
         // Validasi sederhana
         if (id.isEmpty() || nama.isEmpty() || email.isEmpty() || tanggalLahir.isEmpty() ||
@@ -335,7 +333,8 @@ public class SignUpFrame extends javax.swing.JFrame {
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(
-                "INSERT INTO pelajar (id_pelajar, nama, tanggal_lahir, alamat, email, nomor_hp, jenis_kelamin) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+                "INSERT INTO pelajar (id_pelajar, nama, tanggal_lahir, alamat, email, nomor_hp, jenis_kelamin, asal_sekolah, angkatan) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
 
             stmt.setString(1, id);
             stmt.setString(2, nama);
@@ -344,6 +343,8 @@ public class SignUpFrame extends javax.swing.JFrame {
             stmt.setString(5, email);
             stmt.setString(6, noHp);
             stmt.setString(7, jenisKelamin);
+            stmt.setString(8, asalSekolah);
+            stmt.setString(9, angkatan);
 
             int inserted = stmt.executeUpdate();
             if (inserted > 0) {
@@ -356,9 +357,10 @@ public class SignUpFrame extends javax.swing.JFrame {
 //                emailTextField.setText("");
 //                noHpTextField.setText("");
 //                jenisKelaminComboBox.setSelectedIndex(0);
-
-                BerandaFrame beranda = new BerandaFrame();
-                beranda.setVisible(true);
+                PelajarDAO dao = new PelajarDAO();
+                Pelajar pelajar = dao.getPelajarById(id);
+                Pelajar.setCurrentPelajar(pelajar);
+                new BiodataFrame().setVisible(true);
                 this.dispose();
             }
 
@@ -381,13 +383,13 @@ public class SignUpFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SignInKlikMouseClicked
 
-    private void noHpTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHpTextField1ActionPerformed
+    private void asalSekolahTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asalSekolahTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_noHpTextField1ActionPerformed
+    }//GEN-LAST:event_asalSekolahTextFieldActionPerformed
 
-    private void noHpTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noHpTextField2ActionPerformed
+    private void angkatanTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_angkatanTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_noHpTextField2ActionPerformed
+    }//GEN-LAST:event_angkatanTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,6 +438,8 @@ public class SignUpFrame extends javax.swing.JFrame {
     private javax.swing.JLabel SignInKlik;
     private javax.swing.JLabel SignUpKlik;
     private javax.swing.JTextField alamatTextField;
+    private javax.swing.JTextField angkatanTextField;
+    private javax.swing.JTextField asalSekolahTextField;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField idTextField;
     private javax.swing.JPanel jPanel1;
@@ -446,8 +450,6 @@ public class SignUpFrame extends javax.swing.JFrame {
     private javax.swing.JLabel labelJudulContent1;
     private javax.swing.JTextField namaTextField;
     private javax.swing.JTextField noHpTextField;
-    private javax.swing.JTextField noHpTextField1;
-    private javax.swing.JTextField noHpTextField2;
     private javax.swing.JPanel panelMain;
     private javax.swing.JTextField tanggalLahirTextField;
     // End of variables declaration//GEN-END:variables

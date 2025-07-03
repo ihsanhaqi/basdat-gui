@@ -27,7 +27,9 @@ public class PelajarDAO {
                 rs.getString("alamat"),
                 rs.getString("email"),
                 rs.getString("nomor_hp"),
-                rs.getString("jenis_kelamin")
+                rs.getString("jenis_kelamin"),
+                rs.getString("asal_sekolah"),
+                rs.getString("angkatan")
             );
         }
     } catch (SQLException ex) {

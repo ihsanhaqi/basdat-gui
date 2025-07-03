@@ -53,7 +53,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="778" max="32767" attributes="0"/>
                           <Component id="SimpanBtn" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -91,8 +91,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtJenisKelamin2" max="32767" attributes="0"/>
-                                      <Component id="txtJenisKelamin1" max="32767" attributes="0"/>
+                                      <Component id="txtAngkatan" max="32767" attributes="0"/>
+                                      <Component id="txtAsalSekolah" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -146,12 +146,12 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelJenisKelamin1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtJenisKelamin1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAsalSekolah" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelJenisKelamin2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtJenisKelamin2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAngkatan" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="SimpanBtn" min="-2" pref="31" max="-2" attributes="0"/>
@@ -374,7 +374,7 @@
             <Property name="text" type="java.lang.String" value="Asal Sekolah: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtJenisKelamin1">
+        <Component class="javax.swing.JTextField" name="txtAsalSekolah">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
@@ -387,7 +387,7 @@
             <Property name="text" type="java.lang.String" value="Angkatan: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtJenisKelamin2">
+        <Component class="javax.swing.JTextField" name="txtAngkatan">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>

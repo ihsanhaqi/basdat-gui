@@ -18,7 +18,7 @@ public class DatabaseConnection {
         if (koneksi == null) {
             try {
                 String server = "localhost";
-                String database = "ProyekBimbel";
+                String database = "tesProjek2";
                 String user = "sa";
                 String password = "admin123";
                 String url = "jdbc:sqlserver://" + server + ":1300;databaseName=" + database + ";encrypt=false";

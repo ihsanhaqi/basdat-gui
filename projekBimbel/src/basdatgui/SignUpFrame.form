@@ -93,8 +93,8 @@
                                   <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="noHpTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jenisKelaminComboBox" max="32767" attributes="0"/>
-                                  <Component id="noHpTextField1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="noHpTextField2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="asalSekolahTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="angkatanTextField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
@@ -125,9 +125,9 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jenisKelaminComboBox" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="noHpTextField1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="asalSekolahTextField" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="noHpTextField2" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="angkatanTextField" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="DaftarBtn" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace pref="141" max="32767" attributes="0"/>
@@ -189,7 +189,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Tanggal Lahir [yyyy:MM:dd]"/>
+                <Property name="text" type="java.lang.String" value="Tanggal Lahir [yyyy-MM-dd]"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tanggalLahirTextFieldActionPerformed"/>
@@ -241,7 +241,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="noHpTextField1">
+            <Component class="javax.swing.JTextField" name="asalSekolahTextField">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -249,10 +249,10 @@
                 <Property name="text" type="java.lang.String" value="Asal Sekolah"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noHpTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="asalSekolahTextFieldActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="noHpTextField2">
+            <Component class="javax.swing.JTextField" name="angkatanTextField">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -260,7 +260,7 @@
                 <Property name="text" type="java.lang.String" value="Angkatan"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noHpTextField2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="angkatanTextFieldActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

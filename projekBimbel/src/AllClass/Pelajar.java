@@ -16,10 +16,14 @@ public class Pelajar {
     private String email;
     private String nomor_hp;
     private String jenis_kelamin;
-
+    private String asal_sekolah;
+    private String angkatan;
+    
+    private static Pelajar currentPelajar;
     // Constructor
     public Pelajar(String id_pelajar, String nama, String tanggal_lahir,
-                   String alamat, String email, String nomor_hp, String jenis_kelamin) {
+                   String alamat, String email, String nomor_hp, String jenis_kelamin, String asal_sekolah,
+                   String angkatan) {
         this.id_pelajar = id_pelajar;
         this.nama = nama;
         this.tanggal_lahir = tanggal_lahir;
@@ -27,9 +31,19 @@ public class Pelajar {
         this.email = email;
         this.nomor_hp = nomor_hp; 
         this.jenis_kelamin = jenis_kelamin;
+        this.asal_sekolah = asal_sekolah;
+        this.angkatan = angkatan;
     }
 
     // Getter dan Setter
+    public static void setCurrentPelajar(Pelajar pelajar) {
+        currentPelajar = pelajar;
+    }
+
+    public static Pelajar getCurrentPelajar() {
+        return currentPelajar;
+    }
+    
     public String getIdPelajar() {
         return id_pelajar;
     }
@@ -84,5 +98,21 @@ public class Pelajar {
 
     public void setJenisKelamin(String jenis_kelamin) {
         this.jenis_kelamin = jenis_kelamin;
+    }
+    
+    public String getAsalSekolah(){
+        return asal_sekolah;
+    }
+    
+    public void setAsalSekolah(String asal_sekolah){
+        this.asal_sekolah = asal_sekolah;
+    }
+    
+    public String getAngkatan(){
+        return angkatan;
+    }
+    
+    public void setAngkatan(String angkatan){
+        this.angkatan = angkatan;
     }
 }
